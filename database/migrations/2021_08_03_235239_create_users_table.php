@@ -16,20 +16,20 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('prenom')->nullable();;
+            $table->string('prenom')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken()->nullable();;
-            $table->date('ddn')->nullable();;
-            $table->string('adresse')->nullable();;
-            $table->string('photoUser')->nullable();;
-            $table->string('civilite')->nullable();;
-            $table->string('telephone')->nullable();;
-            $table->foreignId('ville_id')
+            $table->rememberToken()->nullable();
+            $table->date('ddn')->nullable();
+            $table->string('adresse')->nullable();
+            $table->string('photoUser')->nullable();
+            $table->string('civilite')->nullable();
+            $table->string('telephone')->nullable();
+            $table->foreignId('ville_id')->nullable()
                 ->constrained('villes')
                 ->onUpdate('cascade')
-                ->onDelete('cascade')->nullable();
+                ->onDelete('cascade')->default("Null");
             $table->boolean('is_admin')->nullable();
             $table->timestamps();
         });
