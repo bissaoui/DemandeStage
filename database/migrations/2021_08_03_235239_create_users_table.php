@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('ville_id')
                 ->constrained('villes')
                 ->onUpdate('cascade')
-                ->onDelete('cascade')->nullable();
+                ->onDelete('cascade')->nullable()->default("NULL");
             $table->boolean('is_admin')->nullable();
             $table->timestamps();
         });
