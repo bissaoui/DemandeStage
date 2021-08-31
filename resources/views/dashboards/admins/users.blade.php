@@ -44,7 +44,7 @@
                                 <td> @if($user->is_admin == 1)
                                      Admin
                                      @else
-                                    User
+                                    Stagiaire
                                      @endif
                                 </td>
                                 <td>{{$user->created_at}}</td>
