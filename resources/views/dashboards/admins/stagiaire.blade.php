@@ -17,9 +17,11 @@
                             <tr>
                                 <th>ID</th>
                                 <th>User</th>
-                                <th>EMAIL</th>
-                                <th>DATE NAISSANCE</th>
-                                <th>TELEPHONE</th>
+                                <th>Email</th>
+                                <th>Date naissance</th>
+                                <th>Telephone</th>
+                                <th>Ville</th>
+                                <th>Date d'inscription</th>
                                 <th>Action</th>
 
                             </tr>
@@ -28,9 +30,11 @@
                             <tr>
                                 <th>ID</th>
                                 <th>User</th>
-                                <th>EMAIL</th>
-                                <th>DATE NAISSANCE</th>
-                                <th>TELEPHONE</th>
+                                <th>Email</th>
+                                <th>Date naissance</th>
+                                <th>Telephone</th>
+                                <th>Ville</th>
+                                <th>Date d'inscription</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -48,6 +52,9 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->ddn}}</td>
                                 <td>{{$user->telephone}}</td>
+                                <td>{{$user->ville->nomVille}}</td>
+                                <td>{{$user->created_at->diffForHumans()}}</td>
+
                                 <td>
                                      <form action="{{url ('admin/userDelete/'. $user->id) }}" method="POST"> 
                                         @method('DELETE')
