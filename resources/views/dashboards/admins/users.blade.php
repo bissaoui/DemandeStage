@@ -50,7 +50,7 @@
                                 <td>{{$user->created_at}}</td>
                                 <td>
                                     @if($user->is_admin == 1)
-                                     Admin
+                                     
                                      @else
                                      <form action="{{url ('admin/userDelete/'. $user->id ) }}" method="POST"> 
                                         @method('DELETE')
