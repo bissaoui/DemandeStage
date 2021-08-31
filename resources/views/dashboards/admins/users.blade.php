@@ -47,7 +47,7 @@
                                     Stagiaire
                                      @endif
                                 </td>
-                                <td>{{$user->created_at}}</td>
+                                <td>{{$user->created_at->diffForHumans}}</td>
                                 <td>
                                     @if($user->is_admin == 1)
                                      
