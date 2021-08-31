@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th >Image</th>
+                                <th >Icon</th>
                                 <th >Nom </th>
                                 <th class="w-25">Action </th>
 
@@ -36,7 +36,7 @@
                         <tfoot>
                             <tr>
                                 <th>ID</th>
-                                <th>Image</th>
+                                <th>Icon</th>
                                 <th>Nom</th>
                                 <th >Action </th>
 
