@@ -97,6 +97,7 @@ class ProjetController extends Controller
     public function show($id)
     {
         //
+        return view('dashboards.admins.Projet.details', ["projet" => true]);
     }
 
     /**
