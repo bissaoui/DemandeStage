@@ -49,9 +49,9 @@
                             <tr>
                                 <td>{{$res->id}}</td>
                                 <td> @if (isset($res->photoReseau)) 
-                                    <img width="75" height="75" src="{{asset('storage/Pictures/Reseau/' .$res->photoReseau)}}" alt="">
+                                    <img width="40" height="40" src="{{asset('storage/Pictures/Reseau/' .$res->photoReseau)}}" alt="">
                                     @else
-                                    <img width="75" height="75 src="{{asset('storage/Pictures/Technologie/technology.png')}}" alt="">
+                                    <img width="40" height="40" src="{{asset('storage/Pictures/Technologie/technology.png')}}" alt="">
 
                                     @endif
                                  </td>
