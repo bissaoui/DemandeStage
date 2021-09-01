@@ -23,5 +23,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             userSeeder::class,
         ]);
+        $this->call([
+            socialmediaSeeder::class,
+        ]);
+        $this->call([
+            technologieSeeder::class,
+        ]);
     }
 }

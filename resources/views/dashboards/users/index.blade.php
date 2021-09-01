@@ -1,1 +1,4 @@
 Dashboard User
+
+
+{{auth()->user()}}
