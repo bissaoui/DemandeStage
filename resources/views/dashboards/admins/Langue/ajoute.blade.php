@@ -8,15 +8,15 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>  Ajouter </strong> Ecoles </h2>
+                    <h2><strong>  Ajouter </strong> Langue </h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('ecole.store')}}" method="post">
+                    <form action="{{route('langue.store')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label>Nom Ecole</label>
-                            <input type="text" class="form-control" name="nomEcole" required>
-                            @error('nomEcole')
+                            <label>Nom Langue</label>
+                            <input type="text" class="form-control" name="nomLangue" required>
+                            @error('nomLangue')
                                 <strong>{{ $message }}</strong>
                             @enderror
                         </div>

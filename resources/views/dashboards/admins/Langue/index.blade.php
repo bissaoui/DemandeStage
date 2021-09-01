@@ -9,11 +9,11 @@
         <div class="card">
             
             <div class="header">
-                <h2><strong>List des</strong> Ecoles </h2>
+                <h2><strong>List des</strong> Langues </h2>
                 <div class="">
-                    <form class="d-inline" action="{{route('ecole.create')}}" > 
+                    <form class="d-inline" action="{{route('langue.create')}}" > 
                         <button class="btn btn-primary  btn-animated btn-animated-y">
-                            <span class="btn-inner--visible">Ajouter Ecole</span>
+                            <span class="btn-inner--visible">Ajouter Langue</span>
                             <span class="btn-inner--hidden"><i class="fa fa-plus"></i></span>
                         </button>
                     </form>
@@ -38,17 +38,17 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($ecoles as $ecole)
+                            @foreach ($langues as $langue)
                                 
                            
                             <tr>
-                                <td>{{$ecole->id}}</td>
-                                <td>{{$ecole->nomEcole}}</td>
+                                <td>{{$langue->id}}</td>
+                                <td>{{$langue->nomLangue}}</td>
                                 <td>
-                                    <form  class="d-inline"  action="{{url ('admin/ecole/'.$ecole->id.'/edit')}}" method="get"> 
+                                    <form  class="d-inline"  action="{{url ('admin/langue/'.$langue->id.'/edit')}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
                                     </form>
-                                     <form class="d-inline" action="{{url ('admin/ecole/'. $ecole->id)}}" method="POST"> 
+                                     <form class="d-inline" action="{{url ('admin/langue/'. $langue->id)}}" method="POST"> 
                                         @method('DELETE')
                                         @csrf()
                                         <button  type="submit" class="btn btn-danger inline">Supprimer</button>

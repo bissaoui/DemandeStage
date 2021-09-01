@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EcoleController;
+use App\Http\Controllers\LangueController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ReseauSociauxController;
 use App\Http\Controllers\TechnologieController;
@@ -42,10 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::resource('technologie', TechnologieController::class);
     Route::resource('reseau', ReseauSociauxController::class);
     Route::resource('projet', ProjetController::class);
-
-
-
-
+    Route::resource('langue', LangueController::class);
     Route::delete('userDelete/{id}', [UserController::class, 'destroy']);
 });
 /*///////////////////////////////////////End Admin//////////////////////////////////////////////*/
