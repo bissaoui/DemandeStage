@@ -29,5 +29,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             technologieSeeder::class,
         ]);
+        $this->call([
+            langueSeeder::class,
+        ]);
+        $this->call([
+            formationSeeder::class,
+        ]);
     }
 }

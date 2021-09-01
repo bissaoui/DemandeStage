@@ -28,9 +28,6 @@
                                 <th >Image</th>
                                 <th >Nom </th>
                                 <th class="w-25">Action </th>
-
-
-
                             </tr>
                         </thead>
                         <tfoot>
@@ -39,13 +36,10 @@
                                 <th>Image</th>
                                 <th>Nom</th>
                                 <th >Action </th>
-
                             </tr>
                         </tfoot>
                         <tbody>
                             @foreach ($technologies as $tech)
-                                
-                           
                             <tr>
                                 <td>{{$tech->id}}</td>
                                 <td> @if (isset($tech->photoTechnologie)) 
@@ -56,7 +50,6 @@
                                     @endif
                                  </td>
                                 <td>{{$tech->nomTechnologie}}</td>
-
                                 <td>
                                     <form  class="d-inline"  action="{{url ('admin/technologie/'.$tech->id.'/edit')}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
@@ -66,19 +59,13 @@
                                         @csrf()
                                         <button  type="submit" class="btn btn-danger inline">Supprimer</button>
                                     </form>
-                                    
                                 </td>
-                                    
-                        
-
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-            
-            
         </div>
     </div>
 </div>
