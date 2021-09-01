@@ -54,6 +54,15 @@
 
             </div>
         </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="card tasks_report">
+                <div class="body">
+                    <input type="text" class="knob" value="66" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#26dad2" readonly>                        
+                    <h6 class="m-t-20">Satisfaction Rate</h6>
+                    <p class="displayblock m-b-0">47% Average <i class="fa fa-trending-up"></i></p>                        
+                </div>
+            </div>
+        </div>
         <div class="col-lg-4 col-md-6 col-sm-12 text-center">
             <div class="card tasks_report">
                 <div class="body">
@@ -65,4 +74,12 @@
 </div>
 </div>
 
+@endsection
+@section('footer-scripts')
+<script src="{{ asset('assets/bundles/libscripts.bundle.js')}}"></script>
+<script src="{{ asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
+<script src="{{ asset('assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js')}}"></script>
+<script src="{{ asset('assets/vendor/jquery-knob/jquery.knob.min.js')}}"></script>
+<script src="{{ asset('assets/js/theme.js')}}"></script>
+<script src="{{ asset('assets/js/pages/widgets.js')}}"></script>
 @endsection
