@@ -36,5 +36,30 @@ class ecoleSeeder extends Seeder
         DB::table('ecoles')->insert([
             'nomEcole' => 'IGA',
         ]);
+        DB::table('ecoles')->insert([
+            'nomEcole' => 'OFPPT',
+        ]);
+        DB::table('ecoles')->insert([
+            'nomEcole' => 'ENSEM',
+        ]);
+        DB::table('ecoles')->insert([
+            'nomEcole' => 'ENSIAS',
+        ]);
+        DB::table('ecoles')->insert([
+            'nomEcole' => 'EHTP',
+        ]);
+        DB::table('ecoles')->insert([
+            'nomEcole' => 'EMI',
+        ]);
+        DB::table('ecoles')->insert([
+            'nomEcole' => 'ENS',
+        ]);
+        DB::table('ecoles')->insert([
+            'nomEcole' => 'Faculté',
+        ]);
+        DB::table('ecoles')->insert([
+            'nomEcole' => 'ESI',
+        ]);
+        
     }
 }
