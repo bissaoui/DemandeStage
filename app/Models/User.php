@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Ville::class);
     }
+
+    public function projetuser()
+    {
+        return $this->hasMany(Projuser::class);
+    }
 }

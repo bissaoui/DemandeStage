@@ -9,4 +9,10 @@ class Technologie extends Model
 {
     use HasFactory;
     protected $fillable = ['nomTechnologie'];
+
+
+    public function projettech()
+    {
+        return $this->belongsTo(Projtech::class, 'id', 'technologie_id');
+    }
 }
