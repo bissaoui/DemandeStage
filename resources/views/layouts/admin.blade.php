@@ -82,7 +82,7 @@
                 <li class="@if(isset($reseau) == true) active @else  @endif"><a href="{{route('reseau.index')}}"><i class="fa fa-rss-square"></i><span>Reseau sociaux</span></a></li>
                 <li class="@if(isset($technologie) == true) active @else  @endif"><a href="{{route('technologie.index')}}"><i class="fa fa-desktop"></i><span>Technologies</span></a></li>
                 <li class="@if(isset($projet) == true) active @else  @endif"><a href="{{route('projet.index')}}"><i class="fa  fa-tasks"></i><span>Projets</span></a></li>
-                <li class="@if(isset($langue) == true) active @else  @endif"><a href="{{route('langue.index')}}"><i class="fa  fa-tasks"></i><span>Langues</span></a></li>
+                <li class="@if(isset($langue) == true) active @else  @endif"><a href="{{route('langue.index')}}"><i class="fa fa-bookmark-o"></i><span>Langues</span></a></li>
                 <li class="@if(isset($demande) == true) active @else  @endif"><a href=""><i class="fa fa-book"></i><span>Demandes</span></a></li>
                 <li class="@if(isset($absence) == true) active @else  @endif"><a href=""><i class="fa fa-calendar"></i><span>Absence</span></a></li>
             </ul>            
