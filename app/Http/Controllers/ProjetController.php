@@ -136,7 +136,11 @@ class ProjetController extends Controller
     {
         //
     }
-
+    public function getInfopage($id)
+    {
+        $projet = Projet::find($id);
+        return view('dashboards.admins.Projet.modifierInfo', ["projet" => true, "prj" => $projet]);
+    }
     /**
      * Remove the specified resource from storage.
      *

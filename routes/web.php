@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::resource('reseau', ReseauSociauxController::class);
     Route::resource('projet', ProjetController::class);
     Route::resource('langue', LangueController::class);
+    Route::get('projet/{id}/info', [ProjetController::class, 'getInfopage'])->name('projet.info');
     Route::delete('userDelete/{id}', [UserController::class, 'destroy']);
 });
 /*///////////////////////////////////////End Admin//////////////////////////////////////////////*/
