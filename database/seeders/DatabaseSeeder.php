@@ -35,5 +35,14 @@ class DatabaseSeeder extends Seeder
         $this->call([
             formationSeeder::class,
         ]);
+        $this->call([
+            projetSeeder::class,
+        ]);
+        $this->call([
+            projetuserSeeder::class,
+        ]);
+        $this->call([
+            projettechSeeder::class,
+        ]);
     }
 }
