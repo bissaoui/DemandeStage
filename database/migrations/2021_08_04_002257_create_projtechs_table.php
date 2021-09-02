@@ -13,7 +13,7 @@ class CreateProjtechsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projtechs', function (Blueprint $table) {
+        Schema::create('projteches', function (Blueprint $table) {
             $table->foreignId('technologie_id')
                 ->constrained('technologies')
                 ->onUpdate('cascade')

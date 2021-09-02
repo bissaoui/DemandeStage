@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProjetController extends Controller
 {
@@ -97,7 +98,20 @@ class ProjetController extends Controller
     public function show($id)
     {
         //
-        return view('dashboards.admins.Projet.details', ["projet" => true]);
+        $projet = Projet::find($id);
+        $userProjet =  DB::table('projets')
+            ->join('projusers', 'projets.id', '=', 'projusers.projet_id')
+            ->join('users', 'users.id', '=', 'projusers.user_id')
+            ->where('projets.id', $id)
+            ->select('users.name', 'users.prenom', 'users.photoUser')
+            ->get();
+        $techProjet =  DB::table('projets')
+            ->join('projteches', 'projets.id', '=', 'projteches.projet_id')
+            ->join('technologies', 'technologies.id', '=', 'projteches.technologie_id')
+            ->where('projets.id', $id)
+            ->select('technologies.nomTechnologie', 'technologies.photoTechnologie')
+            ->get();
+        return view('dashboards.admins.Projet.details', ["projet" => true, "prj" => $projet, "users" => $userProjet, "techs" => $techProjet]);
     }
 
     /**
