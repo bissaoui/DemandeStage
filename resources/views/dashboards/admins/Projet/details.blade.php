@@ -8,6 +8,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="body ml-5">
+                    
                     <div class="row">
                     <h5>Nom de projet :</h5><p class="ml-2">{{$prj->nomProjet}}</p>
                     </div>
