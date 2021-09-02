@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="body ml-5">
-                    
+                <div class="body ml-5 ">
+                    <div class="col-lg-12 text-right  "> <a href="{{route('projet.info',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear " ></i></a></div>
                     <div class="row">
                     <h5>Nom de projet :</h5><p class="ml-2">{{$prj->nomProjet}}</p>
                     </div>
@@ -20,22 +20,21 @@
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 ">
             <div class="card tasks_report pb-4">
-                <div class="header">
-                    <h5>Technologies</h5>
-                </div>               
-                @foreach ($techs as $i)
-                <div class="body d-inline-flex justify-content-start align-items-center p-1  ml-5">
-                    <img class="   rounded-circle mr-4" width="50" height="50" src="{{asset('storage/Pictures/Technologie/'.$i->photoTechnologie)}}" alt="">
-                    <p class="displayblock mb-0">{{$i->nomTechnologie}}</p>
-                </div>
-                @endforeach
-                
+                    <div class="header">
+                        <h5>Technologies</h5><span class="body p-0 mr-3 float-end  fa fa-gear "></span>
+                    </div>               
+                    @foreach ($techs as $i)
+                        <div class="body d-inline-flex justify-content-start align-items-center p-1  ml-5">
+                            <img class="rounded-circle mr-4" width="50" height="50" src="{{asset('storage/Pictures/Technologie/'.$i->photoTechnologie)}}" alt="">
+                            <p class="displayblock mb-0">{{$i->nomTechnologie}}</p>
+                        </div>
+                    @endforeach
             </div>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 text-center">
             <div class="card tasks_report">
                 <div class="header">
-                    <h5>Temps</h5>
+                    <h5>Temps</h5><a href="{{route('projet.info',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear " ></i></a>
                 </div>
                 <div class="body">
                     <div class="row">
@@ -58,7 +57,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 text-center ">
             <div class="card tasks_report pb-4">
                 <div class="header">
-                    <h5>Equipe</h5>
+                    <h5>Equipe</h5><span class="body p-0 mr-3 float-end fa fa-gear"></span>
                 </div>
                 @foreach ($users as $u)
 
