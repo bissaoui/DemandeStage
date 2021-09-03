@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Projet extends Model
 {
     use HasFactory;
+    protected $fillable = ['nomProjet', 'etatProjet', 'dateDebutPr', 'dateFinPr'];
 
     public function projetuser()
     {

@@ -136,10 +136,20 @@ class ProjetController extends Controller
     {
         //
     }
-    public function getInfopage($id)
+    public function getInfoprojet($id)
     {
         $projet = Projet::find($id);
         return view('dashboards.admins.Projet.modifierInfo', ["projet" => true, "prj" => $projet]);
+    }
+    public function editInfoprojet(Request $request, $id)
+    {
+        $projet = Projet::find($id);
+        $this->validate($request, [
+            'nomProjet' => 'required',
+            'etatProjet' => 'required'
+        ]);
+        $projet->update($request->all());
+        return redirect('/admin/projet/' . $id);
     }
     /**
      * Remove the specified resource from storage.

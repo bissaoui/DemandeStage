@@ -7,9 +7,9 @@
     <h1>Détails de projet</h1>
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
-                <div class="body">
-                    <form   enctype="multipart/form-data"  action="{{url('admin/projet/'.$prj->id)}}"  method="post">
+            <form action="{{url('admin/projet/'.$prj->id.'/info')}}"  method="post">
+                <div class="card">
+                    <div class="body">
                         @csrf
                         @method('put')
                         <div class="form-group">
@@ -21,38 +21,26 @@
                         </div>
                         <div class="form-group">
                             <div class="mb-3">
-                                <p>Basic</p>
-                                <select class="form-control show-tick ms select2" data-placeholder="Select">
+                                <p>Etat Projet</p>
+                                <select name="etatProjet" class="form-control show-tick ms select2" data-placeholder="Select">
                                     <option></option>
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
+                                    <option value="En attende" >En attende</option>
+                                    <option value="En cours" >En cours</option>
+                                    <option value="Fini" >Fini</option>
                                 </select>
                             </div>
-                            @error('nomProjet')
+                            @error('etatProjet')
                                 <strong>{{ $message }}</strong>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-warning">Modifier</button>
-                    </form>
-                <div class="body ml-5 ">
-                    <div class="col-lg-12 text-right  "> <span class=" mr-2 float-end  fa fa-gear "></span></div>
-                    <div class="row">
-                    <h5>Nom de projet :</h5>
-                    
-                    
-                        <p class="ml-2">{{$prj->nomProjet}}</p>
-                    </div>
-                    <div class="row">
-                    <h5>Etat de projet :</h5><p class="ml-2">{{$prj->etatProjet}}</p>
                     </div>
                 </div>
-            </div>
+                <button type="submit" class="btn btn-inline ml-auto mr-3  btn-warning">Modifier</button>
+                <a class="btn btn-inline ml-auto mr-3  btn-danger" href="{{route('projet.show',$prj->id)}}">Annuler</a>
+            </form>
         </div>
-        <button type="button" class="btn btn-inline ml-auto mr-3  btn-warning">Modifier</button>
     </div>
 </div>
-
 @endsection
 
 
