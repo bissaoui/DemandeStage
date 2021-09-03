@@ -62,10 +62,10 @@
     <div class="left_sidebar">
         <nav class="sidebar">
             <div class="user-info">
-                <div class="image"><a href="javascript:void(0);"><img src="{{ asset('assets/images/user.png')}}" alt="User"></a></div>
+                <div class="image"><a href="javascript:void(0);"><img src="{{ asset('storage/Pictures/Profile/'.auth()->user()->photoUser)}}" alt="User"></a></div>
                 <div class="detail mt-3">
-                    <h5 class="mb-0">Mike Thomas</h5>
-                    <small>Admin</small>
+                    <h5 class="mb-0">{{auth()->user()->name}} {{auth()->user()->prenom}}</h5>
+                    <small>Admin</small> 
                 </div>
                 <div class="social">
                     <a href="javascript:void(0);" title="facebook"><i class="ti-twitter-alt"></i></a>
