@@ -17,7 +17,7 @@
                     <h2><strong>  Modifier </strong> Reseau social </h2>
                 </div>
                 <div class="body">
-                    <form   enctype="multipart/form-data"  action="{{url('admin/reseau/'.$res->id)}}"  method="post">
+                    <form enctype="multipart/form-data"  action="{{url('admin/reseau/'.$res->id)}}"  method="post">
                         @csrf
                         @method('put')
                         <div class="form-group">
