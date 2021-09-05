@@ -74,4 +74,4 @@
 @section('footer-scripts')
 <script src="{{ asset('assets/vendor/select2/select2.min.js')}}"></script>
 <script src="{{ asset('assets/js/pages/advanced-form.js')}}"></script>
-@endsection
+<script src="{{ asset('assets/js/theme.js')}}"></script>@endsection

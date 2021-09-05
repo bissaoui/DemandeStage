@@ -94,10 +94,17 @@ class ProjetController extends Controller
         $techProjet =  DB::table('projteches')
             ->join('technologies', 'technologies.id', '=', 'projteches.technologie_id')
             ->where('projet_id', $id)
-            ->select('technologies.nomTechnologie', 'technologies.photoTechnologie')
+            ->select('technologies.id', 'technologies.nomTechnologie', 'technologies.photoTechnologie')
             ->get();
-        return $techProjet;
-        return view('dashboards.admins.Projet.details', ["projet" => true, "id" => $id, "techs" => $techProjet]);
+        foreach ($techProjet as $user) {
+            $data[] = $user->id;
+        }
+
+        $techs = DB::table('technologies')
+            ->whereNotIn('id', $data)
+            ->select('technologies.id', 'technologies.nomTechnologie')
+            ->get();
+        return view('dashboards.admins.Projet.Technologies', ["projet" => true, "id" => $id, "usedTechs" => $techProjet, "notUsedTechs" => $techs]);
     }
 
     /**
