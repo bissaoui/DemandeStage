@@ -21,7 +21,7 @@
                                         </div>
                                         <input type="text" class="form-control date" name="dateDebutPr" value="{{date('d-m-Y', strtotime($prj->dateDebutPr))}}" placeholder="Ex: 30/07/2016" required>
                                         @error('dateDebutPr')
-                                           <strong>{{ $message }}</strong>
+                                           <strong class="col-lg-12">{{ $message }}</strong>
                                         @enderror
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                         </div>
                                         <input type="text" class="form-control date" name="dateFinPr" value="{{date('d-m-Y', strtotime($prj->dateFinPr))}}" placeholder="Ex: 30/07/2016" required>
                                         @error('dateFinPr')
-                                           <strong>{{ $message }}</strong>
+                                           <strong class="col-lg-12" >{{ $message }}</strong>
                                         @enderror
                                     </div>
                                 </div>
