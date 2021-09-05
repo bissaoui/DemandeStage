@@ -217,4 +217,10 @@ class ProjetController extends Controller
         Projet::destroy($id);
         return redirect('/admin/projet');
     }
+    public function destroyTech($id, $idTech)
+    {
+        //
+        DB::table('projteches')->where('projet_id', $id)->where('technologie_id', $idTech)->delete();
+        return redirect('/admin/projet/' . $id . '/techno');
+    }
 }

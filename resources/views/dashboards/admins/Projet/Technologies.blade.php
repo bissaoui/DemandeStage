@@ -4,12 +4,15 @@
 @section('content')
 
 <div class="container-fluid">
+    <div class="row">        
+
     <div class="col-lg-12">
         <div class="card">
-            <div class="body pb-2">
+            <div class="body">
                 <h3>Liste Technologie :</h3> 
             </div>
         </div>
+    </div>
     </div>
     <div class="row">        
         @foreach ($usedTechs as $i)
@@ -19,7 +22,13 @@
                         <div class="body d-inline-flex justify-content-start align-items-center p-1  ml-5">
                             <img class="rounded-circle mr-4" width="50" height="50" src="{{asset('storage/Pictures/Technologie/'.$i->photoTechnologie)}}" alt="">
                             <p class="displayblock mb-0">{{$i->nomTechnologie}}</p>
+                            <form class="" action="{{route('projet.techs.delete',[$id,$i->id])}}" method="POST"> 
+                                @method('DELETE')
+                                @csrf()
+                                <button  type="submit" class="btn btn-inline  ml-5  btn-danger ">Supprimer</button>
+                            </form>
                         </div>
+                        
                     </div>
                 </div>
             </div>
