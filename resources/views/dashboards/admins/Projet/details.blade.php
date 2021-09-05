@@ -21,7 +21,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 ">
             <div class="card tasks_report pb-4">
                     <div class="header">
-                        <h5>Technologies</h5><span class="body p-0 mr-3 float-end  fa fa-gear "></span>
+                        <h5>Technologies</h5><a href="{{route('projet.techno',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear " ></i></a>
                     </div>               
                     @foreach ($techs as $i)
                         <div class="body d-inline-flex justify-content-start align-items-center p-1  ml-5">

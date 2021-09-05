@@ -89,6 +89,17 @@ class ProjetController extends Controller
         //$request->input('techs');
     }
 
+    public function getTechnoprojet($id)
+    {
+        $techProjet =  DB::table('projteches')
+            ->join('technologies', 'technologies.id', '=', 'projteches.technologie_id')
+            ->where('projet_id', $id)
+            ->select('technologies.nomTechnologie', 'technologies.photoTechnologie')
+            ->get();
+        return $techProjet;
+        return view('dashboards.admins.Projet.details', ["projet" => true, "id" => $id, "techs" => $techProjet]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -99,16 +110,14 @@ class ProjetController extends Controller
     {
         //
         $projet = Projet::find($id);
-        $userProjet =  DB::table('projets')
-            ->join('projusers', 'projets.id', '=', 'projusers.projet_id')
+        $userProjet =  DB::table('projusers')
             ->join('users', 'users.id', '=', 'projusers.user_id')
-            ->where('projets.id', $id)
+            ->where('projet_id', $id)
             ->select('users.name', 'users.prenom', 'users.photoUser')
             ->get();
-        $techProjet =  DB::table('projets')
-            ->join('projteches', 'projets.id', '=', 'projteches.projet_id')
+        $techProjet =  DB::table('projteches')
             ->join('technologies', 'technologies.id', '=', 'projteches.technologie_id')
-            ->where('projets.id', $id)
+            ->where('projet_id', $id)
             ->select('technologies.nomTechnologie', 'technologies.photoTechnologie')
             ->get();
         return view('dashboards.admins.Projet.details', ["projet" => true, "prj" => $projet, "users" => $userProjet, "techs" => $techProjet]);
