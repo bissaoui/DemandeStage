@@ -34,7 +34,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 text-center">
             <div class="card tasks_report">
                 <div class="header">
-                    <h5>Temps</h5><a href="{{route('projet.info',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear  fa-spin" ></i></a>
+                    <h5>Temps</h5><a href="{{route('projet.Date',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear  fa-spin" ></i></a>
                 </div>
                 <div class="body">
                     <div class="row">

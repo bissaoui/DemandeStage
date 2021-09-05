@@ -136,10 +136,48 @@ class ProjetController extends Controller
     {
         //
     }
+
+    public function getDateprojet($id)
+    {
+        $projet = Projet::find($id);
+        return view('dashboards.admins.Projet.modifierTemps', ["projet" => true, "prj" => $projet]);
+    }
     public function getInfoprojet($id)
     {
         $projet = Projet::find($id);
         return view('dashboards.admins.Projet.modifierInfo', ["projet" => true, "prj" => $projet]);
+    }
+    public function modDate($req)
+    {
+        $datefin = explode('/', $req);
+        $req = "";
+        for ($i = 2; $i >= 0; $i--) {
+            if ($i == 0)
+                $req .= $datefin[$i];
+            else
+                $req .= $datefin[$i] . '-';
+        }
+        return $req;
+    }
+    public function editDateprojet(Request $request, $id)
+    {
+        $projet = Projet::find($id);
+        $req = [
+            "dateDebutPr" => $request->dateDebutPr,
+            "dateFinPr" => $request->dateFinPr,
+        ];
+        $req['dateDebutPr'] = $this->modDate($req['dateDebutPr']);
+        $req['dateFinPr'] = $this->modDate($req['dateFinPr']);
+        $request['dateDebutPr'] = $req['dateDebutPr'];
+        $request['dateFinPr'] = $req['dateFinPr'];
+        $this->validate($request, [
+            'dateDebutPr' => 'required|before:dateFinPr',
+            'dateFinPr' => 'required'
+        ]);
+
+        $projet->update($request->all());
+
+        return redirect('/admin/projet/' . $id);
     }
     public function editInfoprojet(Request $request, $id)
     {
