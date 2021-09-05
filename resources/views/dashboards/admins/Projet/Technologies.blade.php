@@ -19,16 +19,17 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="body">
-                        <div class="body d-inline-flex justify-content-start align-items-center p-1  ml-5">
-                            <img class="rounded-circle mr-4" width="50" height="50" src="{{asset('storage/Pictures/Technologie/'.$i->photoTechnologie)}}" alt="">
-                            <p class="displayblock mb-0">{{$i->nomTechnologie}}</p>
+                        <div class="body col-lg-11 col-md-11 col-sm-11 col-11   d-inline-flex justify-content-between align-items-center p-1  ml-5">
+                            <div>
+                                <img class="rounded-circle mr-4" width="50" height="50" src="{{asset('storage/Pictures/Technologie/'.$i->photoTechnologie)}}" alt="">
+                                <p class="displayblock mb-0">{{$i->nomTechnologie}}</p>
+                            </div>
                             <form class="" action="{{route('projet.techs.delete',[$id,$i->id])}}" method="POST"> 
                                 @method('DELETE')
                                 @csrf()
-                                <button  type="submit" class="btn btn-inline  ml-5  btn-danger ">Supprimer</button>
+                                <button  type="submit" class="btn btn-inline btn-danger mr-2 ">Supprimer</button>
                             </form>
                         </div>
-                        
                     </div>
                 </div>
             </div>
