@@ -1,11 +1,13 @@
 .avatar-upload {
     position: relative;
-    left: 39%;
+    margin: auto;
+    width: 15%;
 }
 
 .avatar-upload .avatar-edit {
     position: absolute;
-
+    bottom: 0;
+    left: 167px;
 }
 
 .avatar-upload .avatar-edit input {
@@ -48,7 +50,7 @@
     height: 192px;
     position: relative;
     border-radius: 100%;
-    border: 6px solid #f8f8f8;
+    border: 2px solid #9c9c9c;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
@@ -61,8 +63,8 @@
     background-position: center;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 550px) {
     .avatar-upload {
-        left: 20%;
+        left: -8%;
     }
 }
