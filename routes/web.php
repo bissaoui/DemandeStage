@@ -45,11 +45,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::resource('projet', ProjetController::class);
     Route::resource('langue', LangueController::class);
     Route::get('projet/{id}/info', [ProjetController::class, 'getInfoprojet'])->name('projet.info');
-    Route::get('projet/{id}/techno', [ProjetController::class, 'getTechnoprojet'])->name('projet.techno');
     Route::get('projet/{id}/Date', [ProjetController::class, 'getDateprojet'])->name('projet.Date');
     Route::put('projet/{id}/info', [ProjetController::class, 'editInfoprojet'])->name('projet.info');
     Route::put('projet/{id}/Date', [ProjetController::class, 'editDateprojet'])->name('projet.Date');
+
+    //Projet Technologies
+
+    Route::get('projet/{id}/techno', [ProjetController::class, 'getTechnoprojet'])->name('projet.techno');
     Route::delete('projet/{id}/techno/{idTech}/delete', [ProjetController::class, 'destroyTech'])->name('projet.techs.delete');
+    Route::post('projet/{id}/techno', [ProjetController::class, 'storeTechToProjet'])->name('projet.storeTech');
+
+    //Projet Users
+
+    Route::get('projet/{id}/equipe', [ProjetController::class, 'getEquipeprojet'])->name('projet.equipe');
+    Route::delete('projet/{id}/equipe/{idUser}/delete', [ProjetController::class, 'destroyUser'])->name('projet.equipe.delete');
+    Route::post('projet/{id}/equipe', [ProjetController::class, 'storeUserToProjet'])->name('projet.storeUser');
+
     Route::delete('userDelete/{id}', [UserController::class, 'destroy']);
 });
 /*///////////////////////////////////////End Admin//////////////////////////////////////////////*/

@@ -45,8 +45,9 @@
                         </div>
                     </div>
                 </div>
+                <a class="btn btn-inline ml-auto mr-3  btn-danger" href="{{route('projet.show',$prj->id)}}"> <i class="fa fa-angle-left " ></i> Retour</a>
+
                 <button type="submit" class="btn btn-inline ml-auto mr-3  btn-warning">Modifier</button>
-                <a class="btn btn-inline ml-auto mr-3  btn-danger" href="{{route('projet.show',$prj->id)}}">Annuler</a>
             </form>
         </div>
     </div>

@@ -57,7 +57,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 text-center ">
             <div class="card tasks_report pb-4">
                 <div class="header">
-                    <h5>Equipe</h5><span class="body p-0 mr-3 float-end fa fa-gear"></span>
+                    <h5>Equipe</h5><a href="{{route('projet.equipe',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear " ></i></a>
                 </div>
                 @foreach ($users as $u)
 
@@ -68,8 +68,6 @@
                 @endforeach
             </div>
         </div>
-        <button type="button" class="btn btn-inline ml-auto mr-3  btn-warning">Modifier</button>
-
     </div>
 </div>
 

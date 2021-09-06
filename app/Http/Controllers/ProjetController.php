@@ -81,7 +81,7 @@ class ProjetController extends Controller
                 $projuser->save();
             }
 
-            return redirect('/admin/technologie');
+            return redirect('/admin/projet');
         } else {
 
             return redirect()->back()->withInput()->withErrors($v);
@@ -107,6 +107,53 @@ class ProjetController extends Controller
         return view('dashboards.admins.Projet.Technologies', ["projet" => true, "id" => $id, "usedTechs" => $techProjet, "notUsedTechs" => $techs]);
     }
 
+
+    public function getEquipeprojet($id)
+    {
+        $userProjet =  DB::table('projusers')
+            ->join('users', 'users.id', '=', 'projusers.user_id')
+            ->where('projet_id', $id)
+            ->select('users.id', 'users.name', 'users.prenom', 'users.photoUser')
+            ->get();
+        foreach ($userProjet as $user) {
+            $data[] = $user->id;
+        }
+
+        $users = DB::table('users')
+            ->whereNotIn('id', $data)
+            ->where('is_admin', 2)
+            ->select('users.id', 'users.name', 'users.prenom')
+            ->get();
+        return view('dashboards.admins.Projet.equipe', ["projet" => true, "id" => $id, "equipe" => $userProjet, "users" => $users]);
+    }
+
+    public function storeTechToProjet(Request $request, $id)
+    {
+        $technologies = $request->input('Technologies');
+        $projtech = new Projtech();
+        foreach ($technologies as $tech) {
+            $projtech = new Projtech();
+            $projtech->technologie_id = $tech;
+            $projtech->projet_id = $id;
+            $projtech->save();
+        }
+
+        return redirect('/admin/projet/' . $id . '/techno');
+    }
+    public function storeUserToProjet(Request $request, $id)
+    {
+        $users = $request->input('Users');
+        $projuser = new Projuser();
+        foreach ($users as $user) {
+            $projuser = new Projuser();
+            $projuser->user_id = $user;
+            $projuser->projet_id = $id;
+            $projuser->dateRejoindre = Carbon::now();
+            $projuser->save();
+        }
+
+        return redirect('/admin/projet/' . $id . '/equipe');
+    }
     /**
      * Display the specified resource.
      *
@@ -222,5 +269,11 @@ class ProjetController extends Controller
         //
         DB::table('projteches')->where('projet_id', $id)->where('technologie_id', $idTech)->delete();
         return redirect('/admin/projet/' . $id . '/techno');
+    }
+    public function destroyUser($id, $idUser)
+    {
+        //
+        DB::table('projusers')->where('projet_id', $id)->where('user_id', $idUser)->delete();
+        return redirect('/admin/projet/' . $id . '/equipe');
     }
 }

@@ -37,23 +37,25 @@
         <div class="col-lg-6">
             <div class="card pb-4">
                 <div class="body">
-                    <p>Technologies </p>
-                    <select class="form-control show-tick ms select2"  name="Technologies[]"  multiple data-placeholder="Select">
-                        <option></option>
-                        @foreach ($notUsedTechs as $tech)
-                            <option value="{{$tech->id}}">{{$tech->nomTechnologie}}</option>
-                        @endforeach
-                    </select>
-                    @error('Technologies')
-                        <strong>{{ $message }}</strong>
-                    @enderror
+                    <form action="{{route('projet.storeTech',$id)}}" method="post">
+                        @csrf
+                        <p>Technologies </p>
+                        <select class="form-control show-tick ms select2"  name="Technologies[]"  multiple data-placeholder="Select">
+                            <option></option>
+                            @foreach ($notUsedTechs as $tech)
+                                <option value="{{$tech->id}}">{{$tech->nomTechnologie}}</option>
+                            @endforeach
+                        </select>
+                        @error('Technologies')
+                            <strong>{{ $message }}</strong>
+                        @enderror
                 </div>
-                <a class="btn btn-inline ml-auto mr-3  btn-primary" href="">Ajouter</a>
+                <button type="submit" class="btn btn-inline ml-auto mr-3  btn-primary" href="">Ajouter</button>
+            </form>
             </div>
         </div>     
     </div>
-
-    <a class="btn btn-inline ml-auto mr-3  btn-danger" href="{{route('projet.show',$id)}}">Annuler</a>
+    <a class="btn btn-inline ml-auto mr-3  btn-danger" href="{{route('projet.show',$id)}}">Retour</a>
 
 </div>
 @endsection
