@@ -19,25 +19,26 @@
                 <div class="header">
                     <form action="" method="post">
                         @csrf
-                        <div>
-                            <div class="form-group">
+                        <div class="body row ml-4">
+                            <div class="form-group col-lg-5">
                                 <label>Nom</label>
                                 <input type="text" class="form-control" name="name" required>
                                 @error('name')
                                     <strong>{{ $message }}</strong>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-lg-2" > </div>
+                            <div class="form-group col-lg-5">
                                 <label>Prenom</label>
                                 <input type="text" class="form-control" name="prenom" required>
                                 @error('prenom')
                                     <strong>{{ $message }}</strong>
                                 @enderror
                             </div>
-                            <div class="demo-masked-input">
+                            <div class="demo-masked-input col-lg-5" >
                                 <div class="form-group row clearfix">
                                     <div class="col-lg-12">
-                                        <b>Date debut de projet </b>
+                                        <label>Date debut de projet </label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-calendar-o"></i></span>
@@ -50,22 +51,56 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>Nom</label>
+                            <div class="form-group col-lg-2" > </div>
+
+                            <div class="form-group col-lg-5">
+                                <div class="mb-3">
+                                    <label>Etat Projet</label>
+                                    <select name="etatProjet" class="form-control show-tick ms select2" data-placeholder="Select">
+                                        <option></option>
+                                        
+                                    </select>
+                                </div>
+                                @error('etatProjet')
+                                    <strong>{{ $message }}</strong>
+                                @enderror
+                            </div>
+                            <div class="form-group col-lg-5">
+                                <label>Civilite</label>
                                 <input type="text" class="form-control" name="name" required>
                                 @error('name')
                                     <strong>{{ $message }}</strong>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label>Nom</label>
+                            <div class="form-group col-lg-2" > </div>
+
+                            <div class="form-group col-lg-5">
+                                <label>Adresse</label>
                                 <input type="text" class="form-control" name="name" required>
                                 @error('name')
                                     <strong>{{ $message }}</strong>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-warning">Ajouter</button>
+                            <div class="form-group col-lg-5">
+                                <label>Telephone</label>
+                                <input type="tel" class="form-control" name="name" required>
+                                @error('name')
+                                    <strong>{{ $message }}</strong>
+                                @enderror
+                            </div>
+                            <div class="form-group col-lg-4">
+
+
+                            </div>
+
+                            <div class="form-group col-lg-2 mt-5">
+
+                                <button type="submit" class="btn btn-block btn-primary">Enregistrer </button>
+
+                            </div>
+
                         </div>
+
                     </form>
                 </div>
             </div>
