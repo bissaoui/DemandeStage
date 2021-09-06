@@ -22,9 +22,13 @@ class CreateFormusersTable extends Migration
                 ->constrained('ecoles')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->primary(['ecole_id', 'user_id']);
+            $table->foreignId('formation_id')
+                ->constrained('formations')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->date('dateDebutPr');
             $table->date('dateFinPr');
+            $table->primary(['dateDebutPr', 'user_id']);
             $table->timestamps();
         });
     }

@@ -15,7 +15,10 @@ class UserController extends Controller
     public function index()
     {
         // 
-        return view('dashboards.users.index');
+        if (auth()->user()->email_verified_at == NULL)
+            return view('dashboards.users.index');
+        else
+            return 'ALL IS GOOD';
     }
 
     /**
