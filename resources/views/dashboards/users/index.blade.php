@@ -1,4 +1,5 @@
 @extends('layouts.stagiaire')
+<link rel="stylesheet" href="{{ asset('assets/css/editprofile.css') }}">
 
 @section('content')    
 
@@ -17,8 +18,18 @@
         <div class="col-lg-12">
             <div class="card pb-2">
                 <div class="header">
-                    <form action="" method="post">
+                    <form action=""  enctype="multipart/form-data" method="post">
                         @csrf
+                        <div class="avatar-upload">
+                            <div class="avatar-edit">
+                                <input type='file' name="photo" id="imageUpload" m accept=".png, .jpg, .jpeg" />
+                                <label for="imageUpload"></label>
+                            </div>
+                            <div class="avatar-preview">
+                                <div id="imagePreview" style="background-image: url(/storage/Pictures/Profile/{{ auth()->user()->photoUser }});">
+                                </div>
+                            </div>
+                        </div>
                         <div class="body row ml-4">
                             <div class="form-group col-lg-5">
                                 <label>Nom</label>
@@ -107,5 +118,26 @@
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('footer-scripts')
+
+<script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+              $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+              $('#imagePreview').hide();
+              $('#imagePreview').fadeIn(650);
+          }
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+  $("#imageUpload").change(function() {
+      readURL(this);
+  });
+  </script>
 
 @endsection
