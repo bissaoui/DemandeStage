@@ -34,12 +34,21 @@
                                     <strong>{{ $message }}</strong>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label>Date de naissance</label>
-                                <input type="text" class="form-control" name="name" required>
-                                @error('name')
-                                    <strong>{{ $message }}</strong>
-                                @enderror
+                            <div class="demo-masked-input">
+                                <div class="form-group row clearfix">
+                                    <div class="col-lg-12">
+                                        <b>Date debut de projet </b>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-calendar-o"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control date" name="dateDebutPr"  placeholder="Ex: 30/07/2016" required>
+                                            @error('dateDebutPr')
+                                               <strong class="col-lg-12">{{ $message }}</strong>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Nom</label>

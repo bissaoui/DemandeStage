@@ -50,9 +50,24 @@
 
                                     @endif{{$user->name}} {{$user->prenom}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->ddn}}</td>
-                                <td>{{$user->telephone}}</td>
-                                <td>{{$user->ville->nomVille}}</td>
+                                <td> @if (isset($user->ddn))
+                                    {{$user->ddn}}
+                                    @else
+                                    NULL
+                                    @endif 
+                                </td>
+                                <td>@if (isset($user->ddn))
+                                    {{$user->telephone}}
+                                    @else
+                                    NULL
+                                    @endif </td>
+                                <td>
+                                    @if (isset($user->ville_id))
+                                    {{$user->ville->nomVille}}
+                                    @else
+                                    NULL
+                                    @endif 
+                                </td>
                                 <td>{{$user->created_at->diffForHumans()}}</td>
 
                                 <td>
