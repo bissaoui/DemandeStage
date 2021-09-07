@@ -23,7 +23,7 @@ class UserController extends Controller
             $ville = Ville::all();
             return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
         } else
-            return view('dashboards.users.dashboard', ["monCompte" => true]);;
+            return view('dashboards.users.dashboard', ["dash" => true]);;
     }
 
     public function settings()
