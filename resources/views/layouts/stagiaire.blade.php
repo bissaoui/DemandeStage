@@ -77,9 +77,9 @@
                 <li class="@if(isset($monCompte) == true) active @else  @endif">
                     <a href="javascript:void(0)" class="has-arrow"><i class="ti-user"></i><span>Mon Compte</span></a>
                     <ul>
-                        <li><a class="dropdown-item" href="auth-login.html">Profile</a></li>
-                        <li><a class="dropdown-item" href="auth-register.html">Modifier Information</a></li>
-                        <li><a class="dropdown-item" href="auth-forgot-password.html">Changer mot de Passe</a></li>
+                        <li><a class="dropdown-item" href="">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.settings')}}">Modifier Information</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.password')}}">Changer mot de Passe</a></li>
                     </ul>
                 </li>
                 <li class="@if(isset($Cv) == true) active @else  @endif">

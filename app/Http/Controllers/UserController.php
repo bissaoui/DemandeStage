@@ -31,6 +31,10 @@ class UserController extends Controller
         $ville = Ville::all();
         return view('dashboards.users.settings', ["villes" => $ville, "monCompte" => true]);
     }
+    public function password()
+    {
+        return view('dashboards.users.password', ["monCompte" => true]);
+    }
     /**
      * Show the form for creating a new resource.
      *

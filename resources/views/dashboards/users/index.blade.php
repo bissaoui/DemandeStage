@@ -1,5 +1,5 @@
 @extends('layouts.stagiaire')
-<link rel="stylesheet" href="{{ asset('assets/css/editprofile.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/editprofile.css') }}"/>
 <link rel="stylesheet" href="{{asset('assets/vendor/select2/select2.css')}}" />
 
 @section('content')    
@@ -29,7 +29,7 @@
                             </div>
                             <div class="avatar-preview">
                                 @if (isset(auth()->user()->photoUser))
-                                <div id="imagePreview" style="background-image: url(/storage/Pictures/Profile/{{ auth()->user()->photoUser }});">    
+                                <div id="imagePreview" style="  background-image: url(/storage/Pictures/Profile/{{ auth()->user()->photoUser }});">    
                                 @else
                                 <div id="imagePreview" style="background-image: url(/storage/Pictures/Profile/images.png);">    
 
