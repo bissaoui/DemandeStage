@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken()->nullable();
             $table->date('ddn')->nullable();
             $table->string('adresse')->nullable();
-            $table->string('photoUser')->nullable();
+            $table->string('photoUser')->nullable()->default('images.png');
             $table->string('civilite')->nullable();
             $table->string('telephone')->nullable();
             $table->foreignId('ville_id')->nullable()

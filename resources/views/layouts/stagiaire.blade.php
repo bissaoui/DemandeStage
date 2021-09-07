@@ -28,13 +28,12 @@
 <nav class="navbar custom-navbar navbar-expand-lg py-2">
     <div class="container-fluid px-0">
         <a href="javascript:void(0);" class="menu_toggle"><i class="fa fa-align-left"></i></a>
-        <a href="index.html" class="navbar-brand"><img src="{{ asset('assets/images/brand/icon.svg')}}" alt="BigBucket" /> <strong>Big</strong> Bucket</a>
+        <a href="{{route('user.dashboard')}}" class="navbar-brand"><img src="{{ asset('assets/images/brand/icon.svg')}}" alt="BigBucket" /> <strong>Big</strong> Bucket</a>
         <div id="navbar_main">
             <ul class="navbar-nav mr-auto hidden-xs">
                 <li class="nav-item page-header">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}"><i class="fa fa-home"></i></a></li>
                 </ul>
                 </li>
             </ul>
@@ -44,7 +43,7 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <h6 class="dropdown-header">User menu</h6>
                         <a class="dropdown-item" href="javascript:void(0);"><i class="fa fa-user text-primary"></i>My Profile</a>
-                        <a class="dropdown-item" href="javascript:void(0);"><i class="fa fa-cog text-primary"></i>Settings</a>
+                        <a class="dropdown-item" href="{{route('user.settings')}}"><i class="fa fa-cog text-primary"></i>Settings</a>
                         <div class="dropdown-divider" role="presentation"></div>
                         <form id="logout-form" method="POST" action="{{route('logout')}}">
                             @csrf
@@ -62,7 +61,7 @@
     <div class="left_sidebar">
         <nav class="sidebar">
             <div class="user-info">
-                <div class="image"><a href="javascript:void(0);"><img src="{{ asset('storage/Pictures/Profile/'.auth()->user()->photoUser)}}" alt="User"></a></div>
+                <div class="image"><a href="javascript:void(0);"><img width="120px" height="120px" src="{{ asset('storage/Pictures/Profile/'.auth()->user()->photoUser)}}" alt="User"></a></div>
                 <div class="detail mt-3">
                     <h5 class="mb-0">{{auth()->user()->name}} {{auth()->user()->prenom}}</h5>
                     <small>Stagiaire</small> 

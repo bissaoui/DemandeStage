@@ -23,9 +23,14 @@ class UserController extends Controller
             $ville = Ville::all();
             return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
         } else
-            return 'ALL IS GOOD';
+            return view('dashboards.users.dashboard', ["monCompte" => true]);;
     }
 
+    public function settings()
+    {
+        $ville = Ville::all();
+        return view('dashboards.users.settings', ["villes" => $ville, "monCompte" => true]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -98,7 +103,6 @@ class UserController extends Controller
             "civilite" => "required",
             "adresse" => "required",
             "telephone" => "required",
-            "photoUser" => "required"
         ]);
 
         $user->name = $request['name'];
@@ -109,9 +113,11 @@ class UserController extends Controller
         $user->adresse = $request['adresse'];
         $user->telephone = $request['telephone'];
         $user->email_verified_at = Carbon::now();
+        if (!empty($request['photoUser'])) {
 
-        $upfile = new UploadFileController();
-        $user->photoUser = $upfile->upload($request['photoUser'], "public/Pictures/Profile");
+            $upfile = new UploadFileController();
+            $user->photoUser = $upfile->upload($request['photoUser'], "public/Pictures/Profile");
+        }
         $user->save();
 
         return redirect('/user/dashboard');
