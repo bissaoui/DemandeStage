@@ -74,7 +74,8 @@
                 </div>
             </div>
             <ul id="main-menu" class="metismenu">
-                <li class="active"><a href="#"><i class="ti-home"></i><span>Mon Compte</span></a></li>
+                <li class="@if(isset($monCompte) == true) active @else  @endif"><a href="#"><i class="ti-home"></i><span>Mon Compte</span></a></li>
+                
             </ul>            
         </nav>
     </div>

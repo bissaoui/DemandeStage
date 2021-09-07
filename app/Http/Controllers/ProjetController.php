@@ -210,27 +210,17 @@ class ProjetController extends Controller
         $projet = Projet::find($id);
         return view('dashboards.admins.Projet.modifierInfo', ["projet" => true, "prj" => $projet]);
     }
-    public function modDate($req)
-    {
-        $datefin = explode('/', $req);
-        $req = "";
-        for ($i = 2; $i >= 0; $i--) {
-            if ($i == 0)
-                $req .= $datefin[$i];
-            else
-                $req .= $datefin[$i] . '-';
-        }
-        return $req;
-    }
+
     public function editDateprojet(Request $request, $id)
     {
+        $formatDate = new FormatDateController();
         $projet = Projet::find($id);
         $req = [
             "dateDebutPr" => $request->dateDebutPr,
             "dateFinPr" => $request->dateFinPr,
         ];
-        $req['dateDebutPr'] = $this->modDate($req['dateDebutPr']);
-        $req['dateFinPr'] = $this->modDate($req['dateFinPr']);
+        $req['dateDebutPr'] = $formatDate->modDate($req['dateDebutPr']);
+        $req['dateFinPr'] = $formatDate->modDate($req['dateFinPr']);
         $request['dateDebutPr'] = $req['dateDebutPr'];
         $request['dateFinPr'] = $req['dateFinPr'];
         $this->validate($request, [
