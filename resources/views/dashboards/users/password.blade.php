@@ -14,40 +14,50 @@
         </div>
     </div>
     <div class="row clearfix">
+        
         <div class="col-lg-12">
             <div class="card  pb-2">  
+                @if (session()->has('message'))
+   
+        <div  class="alert alert-success mt-2" role="alert">
+            {{session()->get('message')}}
+          </div>
+        @endif
                 <div class="header mx-auto ">
                   
-                    <form action="{{route('user.update',auth()->user()->id)}}"  method="post">
+                    <form action="{{route('user.updatePassword',auth()->user()->id)}}"  method="post">
                         @csrf
                         @method('put')
                         
-                        <div class="body  row   " >
+                        <div class="body  row " >
                             <div class="form-group  col-lg-12">
                                 <label>Actuel</label>
-                                <input type="password" class="form-control" name="name" required>
-                                @error('name')
-                                    <strong>{{ $message }}</strong>
-                                @enderror
+                                <input type="password" class="form-control" name="Actuel" required>
+                                @if (session()->has('Actuel'))
+                                <strong>  ancien mot de passe incorrect </strong>
+                                @endif
                             </div>
                             <div class="form-group col-lg-12">
                                 <label>Nouveau</label>
-                                <input type="password" class="form-control" name="prenom"  required>
-                                @error('prenom')
-                                    <strong>{{ $message }}</strong>
+                                <input type="password" class="form-control" name="Nouveau"  required>
+                                @error('Nouveau')
+                                    <strong>nouveau doit comporter au moins 8 caractères. </strong>
                                 @enderror
                             </div>
                            
                             <div class="form-group col-lg-12">
                                 <label>Confirmer</label>
-                                <input type="password" class="form-control" name="adresse"  required>
-                                @error('name')
-                                    <strong>{{ $message }}</strong>
+                                <input type="password" class="form-control" name="Confirmer"  required>
+                                @error('Confirmer')
+                                    <strong>Nouveau mot de passe et la Confirmation doivent correspondre.  </strong>
                                 @enderror
                             </div>
-                           
+                            <div class="col-lg-9 ">
 
-                            <div class="form-group col-lg-12 ">
+
+                            </div>
+
+                            <div class="form-group col-lg-3 mt-3 ">
 
                                 <button type="submit" class="btn btn-block btn-primary">Enregistrer </button>
 

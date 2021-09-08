@@ -72,6 +72,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
     Route::get('settings', [UserController::class, 'settings'])->name('user.settings');
     Route::get('password', [UserController::class, 'password'])->name('user.password');
+    Route::put('updatePassword/{id}', [UserController::class, 'updatePassword'])->name('user.updatePassword');
+
 
     Route::put('update/{id}', [UserController::class, 'update'])->name('user.update');
 });

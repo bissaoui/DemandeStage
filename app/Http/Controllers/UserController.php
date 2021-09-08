@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Ville;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+
+
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
@@ -45,6 +48,24 @@ class UserController extends Controller
         //
     }
 
+    public function updatePassword(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $this->validate($request, [
+            "Actuel" => "required",
+            "Nouveau" => ['required', 'min:8'],
+            "Confirmer" => "required|same:Nouveau"
+        ]);
+
+        if (Hash::check($request->Actuel, $user->password))
+            $user->password = bcrypt($request->Nouveau);
+        else
+            return redirect('/user/password')->with('Actuel', true);
+
+        $user->save();
+        return redirect('/user/password')->with('message', 'vous avez changer votre mot de passe avec success!');
+    }
     /**
      * Store a newly created resource in storage.
      *
