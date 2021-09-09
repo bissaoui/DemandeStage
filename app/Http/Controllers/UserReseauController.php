@@ -10,19 +10,20 @@ class UserReseauController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        //
+        //              
+        $id = auth()->user()->id;
+
         $RU  =  DB::table('resusers')
             ->join('reseausocs', 'resusers.reseausoc_id', '=', 'reseausocs.id')
             ->where('user_id', $id)
-            ->select('reseausocs.id', 'reseausocs.nomReseau', 'reseausocs.photoReseau')
+            ->select('reseausocs.id', 'reseausocs.nomReseau', 'reseausocs.photoReseau', "resusers.url", 'resusers.username')
             ->get();
 
-        return $RU;
+        return  $RU->toJson();;
     }
 
     /**
@@ -52,9 +53,8 @@ class UserReseauController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
     }
 
     /**
