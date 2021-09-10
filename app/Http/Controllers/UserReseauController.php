@@ -23,7 +23,7 @@ class UserReseauController extends Controller
             ->select('reseausocs.id', 'reseausocs.nomReseau', 'reseausocs.photoReseau', "resusers.url", 'resusers.username')
             ->get();
 
-        return  $RU->toJson();;
+        return  view('dashboards.users.Reseau.index', ["data" => $RU]);
     }
 
     /**

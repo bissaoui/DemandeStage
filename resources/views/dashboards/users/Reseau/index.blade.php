@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.stagiaire')
 <link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css')}}">
 
 @section('content')   
@@ -21,11 +21,13 @@
             </div>
             <div class="body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover js-basic-example dataTable">
+                    <table class="table table-striped table-hover js-basic-example dataTable ">
                         <thead>
                             <tr>
-                                <th >Reseau </th>
-                                <th >Username </th>
+                                <th class="w-25" >Reseau </th>
+                                <th class="w-25" >Username </th>
+                                <th class="w-25" >Lien </th>
+
                                 <th class="w-25">Action </th>
 
 
@@ -36,30 +38,31 @@
                             <tr>
                                 <th>Reseau</th>
                                 <th>Username</th>
+                                <th>Lien </th>
+
                                 <th >Action </th>
 
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($reseaux as $res)
+                            @foreach ($data as $res)
                                 
                            
                             <tr>
-                                <td>{{$res->id}}</td>
-                                <td> @if (isset($res->photoReseau)) 
-                                    <img width="40" height="40" src="{{asset('storage/Pictures/Reseau/' .$res->photoReseau)}}" alt="">
-                                    @else
-                                    <img width="40" height="40" src="{{asset('storage/Pictures/Technologie/technology.png')}}" alt="">
-
-                                    @endif
+                                <td> <img width="40" height="40" src="{{asset('storage/Pictures/Reseau/' .$res->photoReseau)}}" alt=""> 
+                                </td>
+                                <td> 
+                                    <a href="{{$res->url}}" target="_blank">{{$res->username}}</a>
                                  </td>
-                                <td>{{$res->nomReseau}}</td>
 
+                                 <td>
+                                     {{$res->url}}
+                                 </td>
                                 <td>
-                                    <form  class="d-inline"  action="{{url ('admin/reseau/'.$res->id.'/edit')}}" method="get"> 
+                                    <form  class="d-inline"  action="{{url ('user/reseau/'.$res->id.'/edit')}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
                                     </form>
-                                     <form class="d-inline" action="{{url ('admin/reseau/'. $res->id)}}" method="POST"> 
+                                     <form class="d-inline" action="{{url ('user/reseau/'. $res->id)}}" method="POST"> 
                                         @method('DELETE')
                                         @csrf()
                                         <button  type="submit" class="btn btn-danger inline">Supprimer</button>

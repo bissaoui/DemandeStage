@@ -89,7 +89,7 @@
                         <li><a class="dropdown-item" href="auth-register.html">Experiances</a></li>
                         <li><a class="dropdown-item" href="auth-forgot-password.html">langues</a></li>
                         <li><a class="dropdown-item" href="auth-forgot-password.html">Competances</a></li>
-                        <li><a class="dropdown-item" href="auth-forgot-password.html">Reseau sociaux</a></li>
+                        <li><a class="dropdown-item" href="{{route('reseau.index')}}">Reseau sociaux</a></li>
                     </ul>
                 </li>
                 <li class="@if(isset($Stage) == true) active @else  @endif"><a href="#"><i class="ti-file"></i><span>Demande De Stage</span></a></li>
