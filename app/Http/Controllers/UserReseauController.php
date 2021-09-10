@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reseausoc;
+use App\Models\Resuser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -89,5 +90,7 @@ class UserReseauController extends Controller
     public function destroy($id)
     {
         //
+        $RU = Resuser::where('reseausoc_id', '=', $id)->where('user_id', '=', auth()->user()->id)->delete();
+        return redirect('user/reseau');
     }
 }

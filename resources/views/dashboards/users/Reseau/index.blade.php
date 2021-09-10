@@ -62,7 +62,7 @@
                                     <form  class="d-inline"  action="{{url ('user/reseau/'.$res->id.'/edit')}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
                                     </form>
-                                     <form class="d-inline" action="{{url ('user/reseau/'. $res->id)}}" method="POST"> 
+                                     <form class="d-inline" action="{{Route ('reseau.destroy', $res->id)}}" method="POST"> 
                                         @method('DELETE')
                                         @csrf()
                                         <button  type="submit" class="btn btn-danger inline">Supprimer</button>
