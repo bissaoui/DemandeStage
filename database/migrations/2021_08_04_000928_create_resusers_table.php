@@ -23,8 +23,8 @@ class CreateResusersTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('username');
-            $table->string('url');
             $table->primary(['user_id', 'reseausoc_id']);
+            $table->timestamps();
         });
     }
 

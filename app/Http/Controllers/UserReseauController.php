@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Langue;
 use App\Models\Reseausoc;
 use App\Models\Resuser;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class UserReseauController extends Controller
         $RU  =  DB::table('resusers')
             ->join('reseausocs', 'resusers.reseausoc_id', '=', 'reseausocs.id')
             ->where('user_id', $id)
-            ->select('reseausocs.id', 'reseausocs.nomReseau', 'reseausocs.photoReseau', "resusers.url", 'resusers.username')
+            ->select('reseausocs.id', 'reseausocs.nomReseau', 'reseausocs.photoReseau', 'resusers.username')
             ->get();
 
         return  view('dashboards.users.Reseau.index', ["data" => $RU]);
@@ -32,11 +33,46 @@ class UserReseauController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function create()
+    // {
+    //     //
+    //     $id = auth()->user()->id;
+    //     $langueUser =  DB::table('langusers')
+    //         ->where('user_id', $id)
+    //         ->select('langue_id')
+    //         ->get();
+    //     $data[] = "1000";
+    //     foreach ($langueUser as $lang) {
+    //         $data[] = $lang->langue_id;
+    //     }
+
+    //     $langs = DB::table('langues')
+    //         ->whereNotIn('id', $data)
+    //         ->select('id', 'nomLangue')
+    //         ->get();
+
+    //     return  view('dashboards.users.Reseau.ajouter', ["langs" => $langs]);
+    // }
     public function create()
     {
         //
-    }
+        $id = auth()->user()->id;
+        $ResUser =  DB::table('resusers')
+            ->where('user_id', $id)
+            ->select('reseausoc_id')
+            ->get();
+        $data[] = "1000";
+        foreach ($ResUser as $res) {
+            $data[] = $res->reseausoc_id;
+        }
 
+        $langs = DB::table('reseausocs')
+            ->whereNotIn('id', $data)
+            ->select('id', 'nomReseau')
+            ->get();
+
+        return  view('dashboards.users.Reseau.ajouter', ["langs" => $langs]);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -46,6 +82,15 @@ class UserReseauController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'username' => 'required',
+        ]);
+        $resuser = new Resuser();
+        $resuser->user_id = auth()->user()->id;
+        $resuser->username = $request->username;
+        $resuser->reseausoc_id = $request->reseausoc_id;
+        $resuser->save();
+        return redirect('/user/reseau');
     }
 
     /**
@@ -67,6 +112,7 @@ class UserReseauController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**

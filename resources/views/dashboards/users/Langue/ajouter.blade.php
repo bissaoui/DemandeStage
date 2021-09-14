@@ -181,16 +181,16 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>  Ajouter </strong> Reseau </h2>
+                    <h2><strong>  Ajouter </strong> Language </h2>
                 </div>
                 <div class="body">
                     <form  action="{{route('reseau.store')}}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <p>Reseau </p>
-                            <select class="form-control show-tick ms select2" id="Reseau"  data-placeholder="Select" name="reseausoc_id"   data-placeholder="Select">
+                            <p>Langue </p>
+                            <select class="form-control show-tick ms select2" data-placeholder="Select" name="langue"   data-placeholder="Select">
                                 @foreach ($langs as $tech)
-                                <option value="{{$tech->id}}">{{$tech->nomReseau}}</option>
+                                <option value="{{$tech->id}}">{{$tech->nomLangue}}</option>
 
                                 @endforeach
                               
@@ -199,14 +199,27 @@
                                 <strong>{{ $message }}</strong>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label>Nom d'utilisateur , ID , Email , Numero  </label>
-                            <input type="text" class="form-control" name="username" required>
-                            @error('username')
-                                <strong>{{ $message }}</strong>
-                            @enderror
+                        <p>Niveau </p>
 
-                        </div>
+                            <div id="full-stars-example">
+                                <div class="rating-group">
+                                    <div id="full-stars-example-two">
+                                        <div class="rating-group">
+                                            <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
+                                            <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio">
+                                            <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio">
+                                            <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio">
+                                            <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio">
+                                            <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         <button type="submit" class="btn btn-warning float-right">Ajouter</button>
                     </form>
                 </div>
@@ -231,7 +244,6 @@
             reader.readAsDataURL(file);
         }
     }
-
 </script>
 <script src="{{ asset('assets/vendor/select2/select2.min.js')}}"></script>
 <script src="{{ asset('assets/js/pages/advanced-form.js')}}"></script>

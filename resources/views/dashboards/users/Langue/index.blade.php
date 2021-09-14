@@ -26,6 +26,7 @@
                             <tr>
                                 <th class="w-25" >Reseau </th>
                                 <th class="w-25" >Username </th>
+                                <th class="w-25" >Lien </th>
 
                                 <th class="w-25">Action </th>
 
@@ -37,6 +38,8 @@
                             <tr>
                                 <th>Reseau</th>
                                 <th>Username</th>
+                                <th>Lien </th>
+
                                 <th >Action </th>
 
                             </tr>
@@ -49,9 +52,12 @@
                                 <td> <img width="40" height="40" src="{{asset('storage/Pictures/Reseau/' .$res->photoReseau)}}" alt=""> 
                                 </td>
                                 <td> 
-                                    {{$res->username}}
+                                    <a href="{{$res->url}}" target="_blank">{{$res->username}}</a>
                                  </td>
 
+                                 <td>
+                                     {{$res->url}}
+                                 </td>
                                 <td>
                                     <form  class="d-inline"  action="{{url ('user/reseau/'.$res->id.'/edit')}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
