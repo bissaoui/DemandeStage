@@ -217,24 +217,7 @@
 
 @endsection
 @section('footer-scripts')
-    <script>
-    function previewFile(input){
-        var file = $("input[type=file]").get(0).files[0];
- 
-        if(file){
-            var reader = new FileReader();
- 
-            reader.onload = function(){
-                $("#previewImg").attr("src", reader.result);
-            }
- 
-            reader.readAsDataURL(file);
-        }
-    }
-
-</script>
 <script src="{{ asset('assets/vendor/select2/select2.min.js')}}"></script>
 <script src="{{ asset('assets/js/pages/advanced-form.js')}}"></script>
 <script src="{{ asset('assets/js/theme.js')}}"></script>
-
 @endsection
