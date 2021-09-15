@@ -24,10 +24,8 @@
                     <table class="table table-striped table-hover js-basic-example dataTable ">
                         <thead>
                             <tr>
-                                <th class="w-25" >Reseau </th>
-                                <th class="w-25" >Username </th>
-                                <th class="w-25" >Lien </th>
-
+                                <th class="w-25" >Langue </th>
+                                <th class="w-25" >Niveau </th>
                                 <th class="w-25">Action </th>
 
 
@@ -36,10 +34,8 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Reseau</th>
-                                <th>Username</th>
-                                <th>Lien </th>
-
+                                <th>Langue</th>
+                                <th>Niveau</th>
                                 <th >Action </th>
 
                             </tr>
@@ -49,20 +45,21 @@
                                 
                            
                             <tr>
-                                <td> <img width="40" height="40" src="{{asset('storage/Pictures/Reseau/' .$res->photoReseau)}}" alt=""> 
+                                <td> {{$res->nomLangue}}
                                 </td>
-                                <td> 
-                                    <a href="{{$res->url}}" target="_blank">{{$res->username}}</a>
-                                 </td>
-
+                               
                                  <td>
-                                     {{$res->url}}
+                                    <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
+                                    @for ($i = 1; $i <= $res->niveauLangue; $i++)
+                                    <label aria-label="{{$i}} star" class="rating__label" for="rating3-{{$i}}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                    <input class="rating__input" name="rating3" id="rating3-{{$i}}" value="{{$i}}" type="radio">
+                                    @endfor
                                  </td>
                                 <td>
-                                    <form  class="d-inline"  action="{{url ('user/reseau/'.$res->id.'/edit')}}" method="get"> 
+                                    <form  class="d-inline"  action="{{url ('user/langue/'.$res->id.'/edit')}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
                                     </form>
-                                     <form class="d-inline" action="{{Route ('reseau.destroy', $res->id)}}" method="POST"> 
+                                     <form class="d-inline" action="{{Route ('langue.destroy', $res->id)}}" method="POST"> 
                                         @method('DELETE')
                                         @csrf()
                                         <button  type="submit" class="btn btn-danger inline">Supprimer</button>

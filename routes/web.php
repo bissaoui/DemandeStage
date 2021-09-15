@@ -7,6 +7,7 @@ use App\Http\Controllers\LangueController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ReseauSociauxController;
 use App\Http\Controllers\TechnologieController;
+use App\Http\Controllers\UserLangController;
 use App\Http\Controllers\UserReseauController;
 use App\Http\Controllers\VilleController;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::get('password', [UserController::class, 'password'])->name('user.password');
     Route::put('updatePassword/{id}', [UserController::class, 'updatePassword'])->name('user.updatePassword');
     Route::resource('reseau', UserReseauController::class);
+    Route::resource('langue', UserLangController::class);
+
 
 
     Route::put('update/{id}', [UserController::class, 'update'])->name('user.update');
