@@ -53,7 +53,7 @@
                                  </td>
 
                                 <td>
-                                    <form  class="d-inline"  action="{{url ('user/reseau/'.$res->id.'/edit')}}" method="get"> 
+                                    <form  class="d-inline"  action="{{Route ('reseau.edit',$res->id )}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
                                     </form>
                                      <form class="d-inline" action="{{Route ('reseau.destroy', $res->id)}}" method="POST"> 

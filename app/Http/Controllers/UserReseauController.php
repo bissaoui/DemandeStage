@@ -112,7 +112,16 @@ class UserReseauController extends Controller
     public function edit($id)
     {
         //
-
+        $myres = DB::table('reseausocs')
+            ->where('id', $id)
+            ->select('*')
+            ->first();
+        $res = DB::table('resusers')
+            ->where('user_id', auth()->user()->id)
+            ->where('reseausoc_id', $id)
+            ->select('*')
+            ->first();
+        return  view('dashboards.users.Reseau.update', ["res" => $res, "myres" => $myres, "id" => $id]);
     }
 
     /**
@@ -125,6 +134,7 @@ class UserReseauController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**

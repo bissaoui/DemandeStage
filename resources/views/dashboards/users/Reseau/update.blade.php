@@ -12,30 +12,27 @@
                     <h2><strong>  Ajouter </strong> Reseau </h2>
                 </div>
                 <div class="body">
-                    <form  action="{{route('reseau.store')}}" method="post">
+                    <form  action="{{route('reseau.update',$id)}}" method="post">
                         @csrf
+                        @method('put')
                         <div class="mb-3">
                             <p>Reseau </p>
                             <select class="form-control show-tick ms select2" id="Reseau"  data-placeholder="Select" name="reseausoc_id"   data-placeholder="Select">
-                                @foreach ($langs as $tech)
-                                <option value="{{$tech->id}}">{{$tech->nomReseau}}</option>
-
-                                @endforeach
-                              
+                                        <option  selected value="{{$myres->id}}">{{$myres->nomReseau}}</option>
                             </select>
-                            @error('langue')
+                            @error('reseausoc_id')
                                 <strong>{{ $message }}</strong>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>Nom d'utilisateur , ID , Email , Numero  </label>
-                            <input type="text" class="form-control" name="username" required>
+                            <input type="text" class="form-control" name="username" value="{{$res->username}}" required>
                             @error('username')
                                 <strong>{{ $message }}</strong>
                             @enderror
 
                         </div>
-                        <button type="submit" class="btn btn-warning float-right">Ajouter</button>
+                        <button type="submit" class="btn btn-warning float-right">Modifier</button>
                     </form>
                 </div>
             </div>
