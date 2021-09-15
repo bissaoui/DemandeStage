@@ -131,10 +131,18 @@ class UserReseauController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
 
+        $resuser = Resuser::where('user_id', '=', auth()->user()->id)
+            ->where('reseausoc_id', '=', $id)
+            ->first();
+
+        $resuser->username = $request->username;
+        $resuser->save();
+        return redirect('/user/reseau');
     }
 
     /**
