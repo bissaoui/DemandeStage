@@ -11,11 +11,11 @@
         <div class="card">
             
             <div class="header">
-                <h2><strong>List des</strong> Reseaux sociaux </h2>
+                <h2><strong>Mes</strong> Langues </h2>
                 <div class="">
-                    <form class="d-inline" action="{{route('reseau.create')}}" > 
+                    <form class="d-inline" action="{{route('langue.create')}}" > 
                         <button class="btn btn-primary  btn-animated btn-animated-y">
-                            <span class="btn-inner--visible">Ajouter un Reseau social</span>
+                            <span class="btn-inner--visible">Ajouter Langue</span>
                             <span class="btn-inner--hidden"><i class="fa fa-plus"></i></span>
                         </button>
                     </form>
@@ -61,7 +61,7 @@
                                     </div>
                                  </td>
                                 <td>
-                                    <form  class="d-inline"  action="{{Route ('langue.update/'.$res->id.'/edit')}}" method="get"> 
+                                    <form  class="d-inline"  action="{{Route ('langue.edit', $res->id)}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
                                     </form>
                                      <form class="d-inline" action="{{Route ('langue.destroy', $res->id)}}" method="POST"> 

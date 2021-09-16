@@ -184,14 +184,13 @@
                     <h2><strong>  Ajouter </strong> Language </h2>
                 </div>
                 <div class="body">
-                    <form  action="{{route('reseau.store')}}" method="post">
+                    <form  action="{{route('langue.store')}}" method="post">
                         @csrf
                         <div class="mb-3">
                             <p>Langue </p>
                             <select class="form-control show-tick ms select2" data-placeholder="Select" name="langue"   data-placeholder="Select">
                                 @foreach ($langs as $tech)
                                 <option value="{{$tech->id}}">{{$tech->nomLangue}}</option>
-
                                 @endforeach
                               
                             </select>
@@ -205,17 +204,17 @@
                                 <div class="rating-group">
                                     <div id="full-stars-example-two">
                                         <div class="rating-group">
-                                            <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
+                                            <input disabled checked class="rating__input rating__input--none" name="niveauLangue" id="rating3-none" value="0" type="radio">
                                             <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio">
+                                            <input class="rating__input" name="niveauLangue" id="rating3-1" value="1" type="radio">
                                             <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio">
+                                            <input class="rating__input" name="niveauLangue" id="rating3-2" value="2" type="radio">
                                             <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio">
+                                            <input class="rating__input" name="niveauLangue" id="rating3-3" value="3" type="radio">
                                             <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio">
+                                            <input class="rating__input" name="niveauLangue" id="rating3-4" value="4" type="radio">
                                             <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio">
+                                            <input class="rating__input" name="niveauLangue" id="rating3-5" value="5" type="radio">
                                         </div>
                                     </div>
                                 </div>
@@ -230,21 +229,6 @@
 
 @endsection
 @section('footer-scripts')
-    <script>
-    function previewFile(input){
-        var file = $("input[type=file]").get(0).files[0];
- 
-        if(file){
-            var reader = new FileReader();
- 
-            reader.onload = function(){
-                $("#previewImg").attr("src", reader.result);
-            }
- 
-            reader.readAsDataURL(file);
-        }
-    }
-</script>
 <script src="{{ asset('assets/vendor/select2/select2.min.js')}}"></script>
 <script src="{{ asset('assets/js/pages/advanced-form.js')}}"></script>
 <script src="{{ asset('assets/js/theme.js')}}"></script>

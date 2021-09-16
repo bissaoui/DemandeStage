@@ -26,11 +26,7 @@
                             <tr>
                                 <th class="w-25" >Reseau </th>
                                 <th class="w-25" >Username </th>
-
                                 <th class="w-25">Action </th>
-
-
-
                             </tr>
                         </thead>
                         <tfoot>
@@ -38,13 +34,10 @@
                                 <th>Reseau</th>
                                 <th>Username</th>
                                 <th >Action </th>
-
                             </tr>
                         </tfoot>
                         <tbody>
                             @foreach ($data as $res)
-                                
-                           
                             <tr>
                                 <td> <img width="40" height="40" src="{{asset('storage/Pictures/Reseau/' .$res->photoReseau)}}" alt=""> 
                                 </td>
@@ -61,26 +54,18 @@
                                         @csrf()
                                         <button  type="submit" class="btn btn-danger inline">Supprimer</button>
                                     </form>
-                                    
                                 </td>
-                                    
-                        
-
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-            </div>
-            
-            
+            </div>   
         </div>
     </div>
 </div>
 </div>
-
 @endsection
-
 @section('footer-scripts')
 <script src="{{ asset('assets/bundles/datatablescripts.bundle.js')}}"></script>
 <script src="{{ asset('assets/vendor/jquery-datatable/buttons/dataTables.buttons.min.js')}}"></script>
