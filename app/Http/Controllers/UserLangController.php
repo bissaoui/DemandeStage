@@ -118,6 +118,13 @@ class UserLangController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $languser = Languser::where('user_id', '=', auth()->user()->id)
+            ->where('langue_id', '=', $id)
+            ->first();
+
+        $languser->niveauLangue = $request->niveauLangue;
+        $languser->save();
+        return redirect('/user/langue');
     }
 
     /**
