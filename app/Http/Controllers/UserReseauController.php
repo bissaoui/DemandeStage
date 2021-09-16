@@ -154,7 +154,7 @@ class UserReseauController extends Controller
     public function destroy($id)
     {
         //
-        $RU = Resuser::where('reseausoc_id', '=', $id)->where('user_id', '=', auth()->user()->id)->delete();
+        Resuser::where('reseausoc_id', '=', $id)->where('user_id', '=', auth()->user()->id)->delete();
         return redirect('user/reseau');
     }
 }

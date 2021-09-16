@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Languser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -92,5 +93,7 @@ class UserLangController extends Controller
     public function destroy($id)
     {
         //
+        Languser::where('langue_id', '=', $id)->where('user_id', '=', auth()->user()->id)->delete();
+        return redirect('user/langue');
     }
 }
