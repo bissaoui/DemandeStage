@@ -47,6 +47,12 @@ class UserController extends Controller
     {
         //
     }
+    public function profile()
+    {
+        $ville = Ville::all();
+
+        return view('dashboards.users.profile', ["villes" => $ville, "monCompte" => true]);
+    }
 
     public function updatePassword(Request $request, $id)
     {

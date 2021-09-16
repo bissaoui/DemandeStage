@@ -77,7 +77,7 @@
                 <li class="@if(isset($monCompte) == true) active @else  @endif">
                     <a href="javascript:void(0)" class="has-arrow"><i class="ti-user"></i><span>Mon Compte</span></a>
                     <ul>
-                        <li><a class="dropdown-item" href="">Profile</a></li>
+                        <li><a class="dropdown-item"  href="{{route('user.profile')}}">Profile</a></li>
                         <li><a class="dropdown-item" href="{{route('user.settings')}}">Modifier Information</a></li>
                         <li><a class="dropdown-item" href="{{route('user.password')}}">Changer mot de Passe</a></li>
                     </ul>

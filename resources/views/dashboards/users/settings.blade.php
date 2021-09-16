@@ -24,7 +24,7 @@
                         @method('put')
                         <div class="avatar-upload">
                             <div class="avatar-edit">
-                                <input type='file' name="photoUser" id="imageUpload"  accept=".png, .jpg, .jpeg" />
+                                <input type='file'  name="photoUser" id="imageUpload"  accept=".png, .jpg, .jpeg" />
                                 <label for="imageUpload"></label>
                             </div>
                             <div class="avatar-preview">
@@ -71,7 +71,7 @@
 
                             <div class="form-group col-lg-5">
                                     <label>Ville</label>
-                                    <select name="ville_id" class="form-control show-tick ms select2" data-placeholder="Select">
+                                    <select  name="ville_id" class="form-control show-tick ms select2" data-placeholder="Select">
                                         <option></option>
                                         @foreach($villes as $ville)
                                         <option value="{{ $ville->id}}" @if ($ville->id==auth()->user()->ville_id)
@@ -105,14 +105,14 @@
                             <div class="form-group col-lg-5">
                                 <label>Adresse</label>
                                 <input type="text" class="form-control" name="adresse" value="{{auth()->user()->adresse}}" required>
-                                @error('name')
+                                @error('adresse')
                                     <strong>{{ $message }}</strong>
                                 @enderror
                             </div>
                             <div class="form-group col-lg-5">
                                 <label>Telephone</label>
                                 <input type="tel" class="form-control" name="telephone" value="{{auth()->user()->telephone}}" required>
-                                @error('name')
+                                @error('telephone')
                                     <strong>{{ $message }}</strong>
                                 @enderror
                             </div>
