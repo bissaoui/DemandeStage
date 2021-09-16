@@ -26,7 +26,7 @@ class UserLangController extends Controller
             ->select('langues.id', 'langues.nomLangue', 'langusers.niveauLangue')
             ->get();
 
-        return  view('dashboards.users.Langue.index', ["data" => $LU]);
+        return  view('dashboards.users.Langue.index', ["data" => $LU, "Cv" => true]);
     }
 
     /**
@@ -53,7 +53,7 @@ class UserLangController extends Controller
             ->select('id', 'nomLangue')
             ->get();
 
-        return  view('dashboards.users.Langue.ajouter', ["langs" => $langs]);
+        return  view('dashboards.users.Langue.ajouter', ["langs" => $langs, "Cv" => true]);
     }
 
     /**
@@ -105,7 +105,7 @@ class UserLangController extends Controller
             ->where('langue_id', $id)
             ->select('*')
             ->first();
-        return  view('dashboards.users.Langue.update', ["langs" => $res, "mylang" => $myres, "id" => $id]);
+        return  view('dashboards.users.Langue.update', ["langs" => $res, "mylang" => $myres, "id" => $id, "Cv" => true]);
     }
 
     /**

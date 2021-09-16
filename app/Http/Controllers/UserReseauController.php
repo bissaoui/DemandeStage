@@ -25,7 +25,7 @@ class UserReseauController extends Controller
             ->select('reseausocs.id', 'reseausocs.nomReseau', 'reseausocs.photoReseau', 'resusers.username')
             ->get();
 
-        return  view('dashboards.users.Reseau.index', ["data" => $RU]);
+        return  view('dashboards.users.Reseau.index', ["data" => $RU, "Cv" => true]);
     }
 
     /**
@@ -33,26 +33,7 @@ class UserReseauController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function create()
-    // {
-    //     //
-    //     $id = auth()->user()->id;
-    //     $langueUser =  DB::table('langusers')
-    //         ->where('user_id', $id)
-    //         ->select('langue_id')
-    //         ->get();
-    //     $data[] = "1000";
-    //     foreach ($langueUser as $lang) {
-    //         $data[] = $lang->langue_id;
-    //     }
 
-    //     $langs = DB::table('langues')
-    //         ->whereNotIn('id', $data)
-    //         ->select('id', 'nomLangue')
-    //         ->get();
-
-    //     return  view('dashboards.users.Reseau.ajouter', ["langs" => $langs]);
-    // }
     public function create()
     {
         //
@@ -71,7 +52,7 @@ class UserReseauController extends Controller
             ->select('id', 'nomReseau')
             ->get();
 
-        return  view('dashboards.users.Reseau.ajouter', ["langs" => $langs]);
+        return  view('dashboards.users.Reseau.ajouter', ["langs" => $langs, "Cv" => true]);
     }
     /**
      * Store a newly created resource in storage.
@@ -121,7 +102,7 @@ class UserReseauController extends Controller
             ->where('reseausoc_id', $id)
             ->select('*')
             ->first();
-        return  view('dashboards.users.Reseau.update', ["res" => $res, "myres" => $myres, "id" => $id]);
+        return  view('dashboards.users.Reseau.update', ["res" => $res, "myres" => $myres, "id" => $id, "Cv" => true]);
     }
 
     /**
