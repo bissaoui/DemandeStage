@@ -87,7 +87,7 @@
                     <ul>
                         <li><a class="dropdown-item" href="auth-login.html">Formations</a></li>
                         <li><a class="dropdown-item" href="auth-register.html">Experiances</a></li>
-                        <li><a class="dropdown-item" href="auth-forgot-password.html">langues</a></li>
+                        <li><a class="dropdown-item" href="{{route('langue.index')}}">langues</a></li>
                         <li><a class="dropdown-item" href="auth-forgot-password.html">Competances</a></li>
                         <li><a class="dropdown-item" href="{{route('reseau.index')}}">Reseau sociaux</a></li>
                     </ul>
