@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompetenceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EcoleController;
 use App\Http\Controllers\LangueController;
@@ -77,6 +78,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::put('updatePassword/{id}', [UserController::class, 'updatePassword'])->name('user.updatePassword');
     Route::resource('reseau', UserReseauController::class);
     Route::resource('langue', UserLangController::class);
+    Route::resource('competence', CompetenceController::class);
 
 
 

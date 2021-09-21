@@ -181,31 +181,49 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>  Modifier votre </strong> Language </h2>
+                    <h2><strong>  Modifier votre </strong> Competance </h2>
                 </div>
                 <div class="body">
-                    <form  action="{{route('langue.update',$id)}}" method="post">
+                    <form  action="{{route('competence.update',$id)}}" method="post">
                       @method('put')
                         @csrf
                         <div class="mb-3">
-                            <p>Langue </p>
-                            <select class="form-control show-tick ms select2" data-placeholder="Select" name="langue"   data-placeholder="Select">
-                                <option value="{{$mylang->id}}">{{$mylang->nomLangue}}</option>
+                            <p>Competance </p>
+                            <select class="form-control show-tick ms select2" data-placeholder="Select" name="technologie_id"   data-placeholder="Select">
+                                <option value="{{$mylang->id}}">{{$mylang->nomTechnologie}}</option>
                             </select>
                         </div>
+                        <div class="mb-3">
+                          <p>Nombre d'experiance </p>
+                          <select class="form-control show-tick ms select2" data-placeholder="Select" name="nbAnnee"   data-placeholder="Select">
+                             @for ($i = 0; $i < 11; $i++)
+                             @if ($langs->nbAnnee == $i)
+                             <option selected value="{{$i}}">{{$i}}</option>
+                            @else
+                            <option value="{{$i}}">{{$i}}</option>
+
+
+                             @endif
+
+                             @endfor
+                          </select>
+                          @error('nbAnnee')
+                              <strong>{{ $message }}</strong>
+                          @enderror
+                      </div>
                         <p>Niveau </p>
                             <div id="full-stars-example">
                                 <div class="rating-group">
                                     <div id="full-stars-example-two">
                                         <div class="rating-group">
-                                          <input disabled   class="rating__input rating__input--none" name="niveauLangue" id="rating3-none" value="0" type="radio">
+                                          <input disabled   class="rating__input rating__input--none" name="niveauCompetence" id="rating3-none" value="0" type="radio">
                                             @for ($i = 1; $i <=5; $i++)
-                                            @if ($langs->niveauLangue!=$i)
+                                            @if ($langs->niveauCompetence!=$i)
                                             <label aria-label="{{$i}} star" class="rating__label"  for="rating3-{{$i}}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input  class="rating__input" name="niveauLangue" id="rating3-{{$i}}" value="{{$i}}" type="radio">
+                                            <input  class="rating__input" name="niveauCompetence" id="rating3-{{$i}}" value="{{$i}}" type="radio">
                                             @else
                                             <label aria-label="{{$i}} star" class="rating__label"  for="rating3-{{$i}}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input  checked class="rating__input" name="niveauLangue" id="rating3-{{$i}}" value="{{$i}}" type="radio">
+                                            <input  checked class="rating__input" name="niveauCompetence" id="rating3-{{$i}}" value="{{$i}}" type="radio">
                                             @endif
                                              @endfor
                                         </div>

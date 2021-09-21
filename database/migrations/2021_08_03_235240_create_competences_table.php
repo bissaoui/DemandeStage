@@ -15,18 +15,17 @@ class CreateCompetencesTable extends Migration
     {
         Schema::create('competences', function (Blueprint $table) {
             $table->foreignId('user_id')
-            ->constrained('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->foreignId('technologie_id')
                 ->constrained('technologies')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->integer('nbAnnee')->unsigned();
-            $table->integer('niveauCompetance')->unsigned();
-            $table->primary(['user_id','technologie_id']);
+            $table->integer('niveauCompetence')->unsigned();
+            $table->primary(['user_id', 'technologie_id']);
             $table->timestamps();
-
         });
     }
 

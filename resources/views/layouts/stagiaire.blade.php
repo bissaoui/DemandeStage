@@ -7,10 +7,8 @@
 <meta name="author" content="Webpixels">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <title>Dashboard Admin</title>
-
 <link rel="stylesheet" href="{{ asset('assets/vendor/themify-icons/themify-icons.css')}}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome/css/font-awesome.min.css')}}">
-
 <link rel="stylesheet" href="{{ asset('assets/vendor/charts-c3/plugin.css')}}"/>
 <link rel="stylesheet" href="{{ asset('assets/vendor/jvectormap/jquery-jvectormap-2.0.3.css')}}"/>
 <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}" type="text/css">
@@ -24,7 +22,6 @@
         <p>Please wait...</p>
     </div>
 </div>
-
 <nav class="navbar custom-navbar navbar-expand-lg py-2">
     <div class="container-fluid px-0">
         <a href="javascript:void(0);" class="menu_toggle"><i class="fa fa-align-left"></i></a>
@@ -55,9 +52,7 @@
         </div>
     </div>
 </nav>
-
 <div class="main_content" id="main-content">
-
     <div class="left_sidebar">
         <nav class="sidebar">
             <div class="user-info">
@@ -85,16 +80,15 @@
                 <li class="@if(isset($Cv) == true) active @else  @endif">
                     <a href="javascript:void(0)" class="has-arrow"><i class="fa fa-university"></i><span>Mon Cv</span></a>
                     <ul>
-                        <li><a class="dropdown-item" href="auth-login.html">Formations</a></li>
-                        <li><a class="dropdown-item" href="auth-register.html">Experiances</a></li>
+                        <li><a class="dropdown-item" href="#">Formations</a></li>
+                        <li><a class="dropdown-item" href="#">Experiances</a></li>
                         <li><a class="dropdown-item" href="{{route('langue.index')}}">langues</a></li>
-                        <li><a class="dropdown-item" href="auth-forgot-password.html">Competances</a></li>
+                        <li><a class="dropdown-item" href="{{route('competence.index')}}">Competences</a></li>
                         <li><a class="dropdown-item" href="{{route('reseau.index')}}">Reseau sociaux</a></li>
                     </ul>
                 </li>
                 <li class="@if(isset($Stage) == true) active @else  @endif"><a href="#"><i class="ti-file"></i><span>Demande De Stage</span></a></li>
                 <li class="@if(isset($Projet) == true) active @else  @endif"><a href="#"><i class="fa fa-th-list"></i><span>Projets</span></a></li>
-                
             </ul>            
         </nav>
     </div>

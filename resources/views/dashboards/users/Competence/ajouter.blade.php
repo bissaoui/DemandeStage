@@ -181,38 +181,57 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>  Modifier votre </strong> Language </h2>
+                    <h2><strong>  Ajouter </strong> Competance </h2>
                 </div>
                 <div class="body">
-                    <form  action="{{route('langue.update',$id)}}" method="post">
-                      @method('put')
+                    <form  action="{{route('competence.store')}}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <p>Langue </p>
-                            <select class="form-control show-tick ms select2" data-placeholder="Select" name="langue"   data-placeholder="Select">
-                                <option value="{{$mylang->id}}">{{$mylang->nomLangue}}</option>
+                            <p>Competence </p>
+                            <select class="form-control show-tick ms select2" data-placeholder="Select" name="technologie_id"   data-placeholder="Select">
+                                @foreach ($techs as $tech)
+                                <option value="{{$tech->id}}">{{$tech->nomTechnologie}}</option>
+                                @endforeach
+                              
                             </select>
+                            @error('technologie_id')
+                                <strong>{{ $message }}</strong>
+                            @enderror
                         </div>
+                        <div class="mb-3">
+                          <p>Nombre d'experiance </p>
+                          <select class="form-control show-tick ms select2" data-placeholder="Select" name="nbAnnee"   data-placeholder="Select">
+                             @for ($i = 0; $i < 11; $i++)
+                             <option value="{{$i}}">{{$i}}</option>
+                             @endfor
+                          </select>
+                          @error('nbAnnee')
+                              <strong>{{ $message }}</strong>
+                          @enderror
+                      </div>
                         <p>Niveau </p>
+
                             <div id="full-stars-example">
                                 <div class="rating-group">
                                     <div id="full-stars-example-two">
                                         <div class="rating-group">
-                                          <input disabled   class="rating__input rating__input--none" name="niveauLangue" id="rating3-none" value="0" type="radio">
-                                            @for ($i = 1; $i <=5; $i++)
-                                            @if ($langs->niveauLangue!=$i)
-                                            <label aria-label="{{$i}} star" class="rating__label"  for="rating3-{{$i}}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input  class="rating__input" name="niveauLangue" id="rating3-{{$i}}" value="{{$i}}" type="radio">
-                                            @else
-                                            <label aria-label="{{$i}} star" class="rating__label"  for="rating3-{{$i}}"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
-                                            <input  checked class="rating__input" name="niveauLangue" id="rating3-{{$i}}" value="{{$i}}" type="radio">
-                                            @endif
-                                             @endfor
+                                            <input disabled checked class="rating__input rating__input--none" name="niveauCompetence" id="rating3-none" value="0" type="radio">
+                                            <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="niveauCompetence" id="rating3-1" value="1" type="radio">
+                                            <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="niveauCompetence" id="rating3-2" value="2" type="radio">
+                                            <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="niveauCompetence" id="rating3-3" value="3" type="radio">
+                                            <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="niveauCompetence" id="rating3-4" value="4" type="radio">
+                                            <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                                            <input class="rating__input" name="niveauCompetence" id="rating3-5" value="5" type="radio">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <button type="submit" class="btn btn-warning float-right">Modifier</button>
+                          
+                        <button type="submit" class="btn btn-warning float-right">Ajouter</button>
                     </form>
                 </div>
             </div>
