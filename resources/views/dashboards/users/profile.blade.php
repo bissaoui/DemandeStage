@@ -87,7 +87,6 @@
 
                             <div class="form-group col-lg-2 mt-5">
 
-                                <a href="{{route('user.settings')}}"  class="btn btn-block btn-primary">Modifier </a>
 
                             </div>
 
