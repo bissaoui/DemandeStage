@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFormusersTable extends Migration
+class CreateEcoleformsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,7 @@ class CreateFormusersTable extends Migration
      */
     public function up()
     {
-        Schema::create('formusers', function (Blueprint $table) {
-            $table->foreignId('user_id')
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+        Schema::create('ecoleforms', function (Blueprint $table) {
             $table->foreignId('ecole_id')
                 ->constrained('ecoles')
                 ->onUpdate('cascade')
@@ -26,11 +22,8 @@ class CreateFormusersTable extends Migration
                 ->constrained('formations')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('filiere');
-            $table->string('nomEcoleComplet');
-            $table->date('dateDebut');
-            $table->date('dateFin');
-            $table->primary(['dateDebut', 'user_id']);
+            $table->primary(['ecole_id', 'formation_id']);
+
             $table->timestamps();
         });
     }
@@ -42,6 +35,6 @@ class CreateFormusersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formusers');
+        Schema::dropIfExists('ecoleforms');
     }
 }

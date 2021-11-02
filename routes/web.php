@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompetenceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EcoleController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\FormationUserController;
 use App\Http\Controllers\LangueController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ReseauSociauxController;
@@ -79,6 +81,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::resource('reseau', UserReseauController::class);
     Route::resource('langue', UserLangController::class);
     Route::resource('competence', CompetenceController::class);
+    Route::resource('experience', ExperienceController::class);
+    Route::resource('formation', FormationUserController::class);
+
 
 
 

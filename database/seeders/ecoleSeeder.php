@@ -19,6 +19,9 @@ class ecoleSeeder extends Seeder
             'nomEcole' => 'EST',
         ]);
         DB::table('ecoles')->insert([
+            'nomEcole' => 'LYCEE',
+        ]);
+        DB::table('ecoles')->insert([
             'nomEcole' => 'ENSA',
         ]);
         DB::table('ecoles')->insert([
@@ -60,6 +63,5 @@ class ecoleSeeder extends Seeder
         DB::table('ecoles')->insert([
             'nomEcole' => 'ESI',
         ]);
-        
     }
 }

@@ -15,12 +15,13 @@ class CreateExperiencesTable extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
-            $table->date('dateDebutEx');
-            $table->date('dateFinEx');
-            $table->string('entreprise');
-            $table->string('fonction');
-            $table->string('logoEntreprise');
-            $table->foreignId('user_id')
+            $table->date('dateDebutEx')->nullable();
+            $table->date('dateFinEx')->nullable();
+            $table->string('entreprise')->nullable();
+            $table->string('fonction')->nullable();
+            $table->string('tache')->nullable();
+            $table->string('logoEntreprise')->nullable();
+            $table->foreignId('user_id')->nullable()
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

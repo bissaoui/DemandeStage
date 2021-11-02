@@ -80,8 +80,8 @@
                 <li class="@if(isset($Cv) == true) active @else  @endif">
                     <a href="javascript:void(0)" class="has-arrow"><i class="fa fa-university"></i><span>Mon Cv</span></a>
                     <ul>
-                        <li><a class="dropdown-item" href="#">Formations</a></li>
-                        <li><a class="dropdown-item" href="#">Experiances</a></li>
+                        <li><a class="dropdown-item" href="{{route('formation.index')}}">Formations</a></li>
+                        <li><a class="dropdown-item" href="{{route('experience.index')}}">Experiances</a></li>
                         <li><a class="dropdown-item" href="{{route('langue.index')}}">langues</a></li>
                         <li><a class="dropdown-item" href="{{route('competence.index')}}">Competences</a></li>
                         <li><a class="dropdown-item" href="{{route('reseau.index')}}">Reseau sociaux</a></li>
