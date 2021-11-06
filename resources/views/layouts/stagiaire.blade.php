@@ -6,7 +6,7 @@
 <meta name="description" content="">
 <meta name="author" content="Webpixels">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<title>Dashboard Admin</title>
+<title>Dashboard User</title>
 <link rel="stylesheet" href="{{ asset('assets/vendor/themify-icons/themify-icons.css')}}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome/css/font-awesome.min.css')}}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/charts-c3/plugin.css')}}"/>
@@ -25,15 +25,9 @@
 <nav class="navbar custom-navbar navbar-expand-lg py-2">
     <div class="container-fluid px-0">
         <a href="javascript:void(0);" class="menu_toggle"><i class="fa fa-align-left"></i></a>
-        <a href="{{route('user.dashboard')}}" class="navbar-brand"><img src="{{ asset('assets/images/brand/icon.svg')}}" alt="BigBucket" /> <strong>Big</strong> Bucket</a>
+        <a href="{{route('user.dashboard')}}" class="navbar-brand"><img src="{{ asset('assets/images/brand/icon.svg')}}" alt="BigBucket" /> <strong>Internship </strong></a>
         <div id="navbar_main">
-            <ul class="navbar-nav mr-auto hidden-xs">
-                <li class="nav-item page-header">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}"><i class="fa fa-home"></i></a></li>
-                </ul>
-                </li>
-            </ul>
+            
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link nav-link-icon" href="javascript:void(0);" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
@@ -62,13 +56,10 @@
                     <small>Stagiaire</small> 
                 </div>
                 <div class="social">
-                    <a href="javascript:void(0);" title="facebook"><i class="ti-twitter-alt"></i></a>
-                    <a href="javascript:void(0);" title="twitter"><i class="ti-linkedin"></i></a>
-                    <a href="javascript:void(0);" title="instagram"><i class="ti-facebook"></i></a>
-                </div>
+                    </div>
             </div>
             <ul id="main-menu" class="metismenu">
-                <li class="@if(isset($dash) == true) active @else  @endif"><a href="#"><i class="ti-home"></i><span>Dashboard</span></a></li>
+                <li class="@if(isset($dash) == true) active @else  @endif"><a href="{{route('user.dashboard')}}"><i class="ti-home"></i><span>Dashboard</span></a></li>
                 <li class="@if(isset($monCompte) == true) active @else  @endif">
                     <a href="javascript:void(0)" class="has-arrow"><i class="ti-user"></i><span>Mon Compte</span></a>
                     <ul>
@@ -87,7 +78,7 @@
                         <li><a class="dropdown-item" href="{{route('reseau.index')}}">Reseau sociaux</a></li>
                     </ul>
                 </li>
-                <li class="@if(isset($Stage) == true) active @else  @endif"><a href="#"><i class="ti-file"></i><span>Demande De Stage</span></a></li>
+                <li class="@if(isset($Stage) == true) active @else  @endif"><a href="{{route('demande_Stage.index')}}"><i class="ti-file"></i><span>Demande De Stage</span></a></li>
                 <li class="@if(isset($Projet) == true) active @else  @endif"><a href="#"><i class="fa fa-th-list"></i><span>Projets</span></a></li>
             </ul>            
         </nav>

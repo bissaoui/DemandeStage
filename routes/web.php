@@ -13,6 +13,8 @@ use App\Http\Controllers\TechnologieController;
 use App\Http\Controllers\UserLangController;
 use App\Http\Controllers\UserReseauController;
 use App\Http\Controllers\VilleController;
+use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\DemandeStageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -83,6 +85,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::resource('competence', CompetenceController::class);
     Route::resource('experience', ExperienceController::class);
     Route::resource('formation', FormationUserController::class);
+    Route::resource('absence', absenceController::class);
+    Route::resource('demande_Stage', DemandeStageController::class);
+    Route::get('projet_Stage', [ProjetController::class, 'getAllProjectStagaire']);
+    Route::get('projet_Stage/{id}/info', [ProjetController::class, '']);
+
 
 
 
