@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.stagiaire')
 <link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css')}}">
 
 @section('content')   
@@ -9,19 +9,12 @@
         <div class="card">
             
             <div class="header">
-                <h2><strong>List des</strong> Projet </h2>
-                <div class="">
-                    <form class="d-inline" action="{{route('projet.create')}}" > 
-                        <button class="btn btn-primary  btn-animated btn-animated-y">
-                            <span class="btn-inner--visible">Ajouter projet</span>
-                            <span class="btn-inner--hidden"><i class="fa fa-plus"></i></span>
-                        </button>
-                    </form>
-                </div>
+                <h2><strong>Mes</strong> Projets </h2>
+
             </div>
             <div class="body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover js-basic-example dataTable">
+                    <table class="table table-striped table-hover ">
                         <thead>
                             <tr>
                                 <th >ID</th>
@@ -49,17 +42,10 @@
                                 <td>{{$projet->etatProjet}}</td>
 
                                 <td>
-                                    {{-- <form  class="d-inline"  action="{{ url ('admin/projet/'.$projet->id.'/edit')}}" method="get"> 
-                                        <button  type="submit" class="btn btn-warning inline">Modifier</button>
-                                    </form> --}}
+                                    
                                 
-                                    <form  class="d-inline"  action="{{url ('admin/projet/'.$projet->id)}}" method="get"> 
+                                    <form  class="d-inline"  action="{{route('projet_Stage.showProjet',$projet->id)}}" method="get"> 
                                         <button  type="submit" class="btn btn-primary inline">Details</button>
-                                    </form>
-                                     <form class="d-inline" action="{{url ('admin/projet/'. $projet->id)}}" method="POST"> 
-                                        @method('DELETE')
-                                        @csrf()
-                                        <button  type="submit" class="btn btn-danger inline">Supprimer</button>
                                     </form>
                                     
                                 </td>

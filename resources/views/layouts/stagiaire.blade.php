@@ -79,7 +79,7 @@
                     </ul>
                 </li>
                 <li class="@if(isset($Stage) == true) active @else  @endif"><a href="{{route('demande_Stage.index')}}"><i class="ti-file"></i><span>Demande De Stage</span></a></li>
-                <li class="@if(isset($Projet) == true) active @else  @endif"><a href="#"><i class="fa fa-th-list"></i><span>Projets</span></a></li>
+                <li class="@if(isset($Projet) == true) active @else  @endif"><a href="{{route('projet_Stage.getAllProjetStagaire')}}"><i class="fa fa-th-list"></i><span>Projets</span></a></li>
             </ul>            
         </nav>
     </div>

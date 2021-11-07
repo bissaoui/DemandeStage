@@ -8,7 +8,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="body ml-5 ">
-                    <div class="col-lg-12 text-right  "> <a href="{{route('projet.info',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear " ></i></a></div>
+                    <div class="col-lg-12 text-right  "><i class="body p-0 mr-3 float-end  fa fa-gear " ></i></div>
                     <div class="row">
                     <h5>Nom de projet :</h5><p class="ml-2">{{$prj->nomProjet}}</p>
                     </div>
@@ -21,7 +21,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 ">
             <div class="card tasks_report pb-4">
                     <div class="header">
-                        <h5>Technologies</h5><a href="{{route('projet.techno',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear " ></i></a>
+                        <h5>Technologies</h5><i class="body p-0 mr-3 float-end  fa fa-gear " ></i>
                     </div>               
                     @foreach ($techs as $i)
                         <div class="body d-inline-flex justify-content-start align-items-center p-1  ml-5">
@@ -34,7 +34,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 text-center">
             <div class="card tasks_report">
                 <div class="header">
-                    <h5>Temps</h5><a href="{{route('projet.Date',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear  fa-spin" ></i></a>
+                    <h5>Temps</h5><i class="body p-0 mr-3 float-end  fa fa-gear " ></i>
                 </div>
                 <div class="body">
                     <div class="row">
@@ -57,7 +57,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12 text-center ">
             <div class="card tasks_report pb-4">
                 <div class="header">
-                    <h5>Equipe</h5><a href="{{route('projet.equipe',$prj->id)}}"><i class="body p-0 mr-3 float-end  fa fa-gear " ></i></a>
+                    <h5>Equipe</h5><i class="body p-0 mr-3 float-end  fa fa-gear " ></i>
                 </div>
                 @foreach ($users as $u)
 

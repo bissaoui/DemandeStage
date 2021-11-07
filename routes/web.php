@@ -87,8 +87,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::resource('formation', FormationUserController::class);
     Route::resource('absence', absenceController::class);
     Route::resource('demande_Stage', DemandeStageController::class);
-    Route::get('projet_Stage', [ProjetController::class, 'getAllProjectStagaire']);
-    Route::get('projet_Stage/{id}/info', [ProjetController::class, '']);
+    Route::get('projet_Stage', [ProjetController::class, 'getAllProjetStagaire'])->name('projet_Stage.getAllProjetStagaire');
+    Route::get('projet_Stage/{id}', [ProjetController::class, 'showProjet'])->name('projet_Stage.showProjet');
 
 
 

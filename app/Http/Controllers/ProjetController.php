@@ -25,6 +25,18 @@ class ProjetController extends Controller
         $projet = Projet::all();
         return view('dashboards.admins.Projet.index', ["projet" => true, "projets" => $projet]);
     }
+    public function getAllProjetStagaire()
+    {
+
+        $projet  =  DB::table('projusers')
+            ->join('projets', 'projusers.projet_id', '=', 'projets.id')
+            ->where('user_id', auth()->user()->id)
+            ->select('nomProjet', 'id', 'etatProjet')
+            ->get();
+        return view('dashboards.users.Projet.index', ["Projet" => true, "projets" => $projet]);
+
+        return $LU;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -175,6 +187,34 @@ class ProjetController extends Controller
             ->select('technologies.nomTechnologie', 'technologies.photoTechnologie')
             ->get();
         return view('dashboards.admins.Projet.details', ["projet" => true, "prj" => $projet, "users" => $userProjet, "techs" => $techProjet]);
+    }
+    public function showProjet($id)
+    {
+        //
+        $idUsers =  DB::table('projusers')
+            ->join('users', 'users.id', '=', 'projusers.user_id')
+            ->where('projet_id', $id)
+            ->select('users.id')
+            ->get();
+        for ($i = 0; $i < count($idUsers); $i++) {
+            # code...idUsers
+            if (auth()->user()->id == $idUsers[$i]->id) {
+
+                $projet = Projet::find($id);
+                $userProjet =  DB::table('projusers')
+                    ->join('users', 'users.id', '=', 'projusers.user_id')
+                    ->where('projet_id', $id)
+                    ->select('users.name', 'users.prenom', 'users.photoUser')
+                    ->get();
+                $techProjet =  DB::table('projteches')
+                    ->join('technologies', 'technologies.id', '=', 'projteches.technologie_id')
+                    ->where('projet_id', $id)
+                    ->select('technologies.nomTechnologie', 'technologies.photoTechnologie')
+                    ->get();
+                return view('dashboards.users.Projet.details', ["Projet" => true, "prj" => $projet, "users" => $userProjet, "techs" => $techProjet]);
+            }
+        }
+        return redirect('user/projet_Stage');
     }
 
     /**
