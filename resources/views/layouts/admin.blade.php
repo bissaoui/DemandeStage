@@ -28,16 +28,9 @@
 <nav class="navbar custom-navbar navbar-expand-lg py-2">
     <div class="container-fluid px-0">
         <a href="javascript:void(0);" class="menu_toggle"><i class="fa fa-align-left"></i></a>
-        <a href="index.html" class="navbar-brand"><img src="{{ asset('assets/images/brand/icon.svg')}}" alt="BigBucket" /> <strong>Big</strong> Bucket</a>
+        <a href="{{route('admin.dashboard')}}" class="navbar-brand"><img src="{{ asset('assets/images/brand/icon.svg')}}" alt="BigBucket" /> <strong>Inertnship</strong></a>
         <div id="navbar_main">
-            <ul class="navbar-nav mr-auto hidden-xs">
-                <li class="nav-item page-header">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ul>
-                </li>
-            </ul>
+            
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link nav-link-icon" href="javascript:void(0);" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
@@ -83,7 +76,7 @@
                 <li class="@if(isset($technologie) == true) active @else  @endif"><a href="{{route('technologie.index')}}"><i class="fa fa-desktop"></i><span>Technologies</span></a></li>
                 <li class="@if(isset($projet) == true) active @else  @endif"><a href="{{route('projet.index')}}"><i class="fa  fa-tasks"></i><span>Projets</span></a></li>
                 <li class="@if(isset($langue) == true) active @else  @endif"><a href="{{url('admin/langue')}}"><i class="fa fa-bookmark-o"></i><span>Langues</span></a></li>
-                <li class="@if(isset($demande) == true) active @else  @endif"><a href=""><i class="fa fa-book"></i><span>Demandes</span></a></li>
+                <li class="@if(isset($demande) == true) active @else  @endif"><a href="{{route('demande.allDemande')}}"><i class="fa fa-book"></i><span>Demandes</span></a></li>
                 <li class="@if(isset($absence) == true) active @else  @endif"><a href=""><i class="fa fa-calendar"></i><span>Absence</span></a></li>
             </ul>            
         </nav>

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Demande;
 use App\Models\Ecole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DemandeStageController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +18,35 @@ class DemandeStageController extends Controller
     public function index()
     {
         //
+
         $id = auth()->user()->id;
         $dmds = Demande::all()->where('user_id', '=', $id);
         return view('dashboards.users.demande.index', ['Stage' => true, 'dmds' => $dmds]);
+    }
+    public function accepte($id)
+    {
+        $dmd = Demande::find($id);
+        $dmd->statut = 1;
+        $dmd->save();
+
+        return redirect('admin\demande');
+    }
+    public function refuse($id)
+    {
+        $dmd = Demande::find($id);
+        $dmd->statut = 2;
+        $dmd->save();
+
+        return redirect('admin\demande');
+    }
+    public function allDemande()
+    {
+        $dmds =  DB::table('demandes')
+            ->join('users', 'users.id', '=', 'demandes.user_id')
+            ->join('ecoles', 'ecoles.id', '=', 'demandes.ecole_id')
+            ->select('demandes.user_id', 'demandes.id', 'users.name', 'users.prenom', 'users.photoUser', 'demandes.type', 'demandes.statut', 'demandes.duree', 'ecoles.nomEcole')
+            ->get();
+        return view('dashboards.admins.Demande.index', ['demande' => true, 'dmds' => $dmds]);
     }
     /**
      * Show the form for creating a new resource.

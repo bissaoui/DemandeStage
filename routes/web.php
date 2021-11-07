@@ -68,6 +68,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::delete('projet/{id}/equipe/{idUser}/delete', [ProjetController::class, 'destroyUser'])->name('projet.equipe.delete');
     Route::post('projet/{id}/equipe', [ProjetController::class, 'storeUserToProjet'])->name('projet.storeUser');
 
+    // Demande de stage
+
+    Route::get('demande', [DemandeStageController::class, 'allDemande'])->name('demande.allDemande');
+    Route::get('demande/{id}/refuse', [DemandeStageController::class, 'refuse'])->name('demande.refuse');
+    Route::get('demande/{id}/accepte', [DemandeStageController::class, 'accepte'])->name('demande.accepte');
+    Route::get('demande', [DemandeStageController::class, 'allDemande'])->name('demande.allDemande');
+
     Route::delete('userDelete/{id}', [UserController::class, 'destroy']);
 });
 /*///////////////////////////////////////End Admin//////////////////////////////////////////////*/
