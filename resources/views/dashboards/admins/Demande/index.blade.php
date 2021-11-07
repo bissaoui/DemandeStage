@@ -93,7 +93,7 @@
                                 </form>
                                 @endif  
                                 @endif
-                                <form  class="d-inline"  action="{{route('demande.accepte',$dmd->id)}}" method="GET"> 
+                                <form  class="d-inline"  action="{{route('cv.index',$dmd->user_id)}}" method="GET"> 
                                     @csrf()
                                     <button  type="submit" class="btn btn-warning inline">Afficher Stagiaire</button>
                                 </form>

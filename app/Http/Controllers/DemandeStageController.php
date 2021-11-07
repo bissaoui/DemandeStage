@@ -36,7 +36,6 @@ class DemandeStageController extends Controller
         $dmd = Demande::find($id);
         $dmd->statut = 2;
         $dmd->save();
-
         return redirect('admin\demande');
     }
     public function allDemande()

@@ -14,6 +14,7 @@ use App\Http\Controllers\UserLangController;
 use App\Http\Controllers\UserReseauController;
 use App\Http\Controllers\VilleController;
 use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\cvController;
 use App\Http\Controllers\DemandeStageController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 /*-----------------------------------------Admin------------------------------------------------*/
 
 Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], function () {
@@ -55,6 +57,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
     Route::get('projet/{id}/Date', [ProjetController::class, 'getDateprojet'])->name('projet.Date');
     Route::put('projet/{id}/info', [ProjetController::class, 'editInfoprojet'])->name('projet.info');
     Route::put('projet/{id}/Date', [ProjetController::class, 'editDateprojet'])->name('projet.Date');
+    Route::get('cv/{id}', [cvController::class, 'index'])->name('cv.index');
+
 
     //Projet Technologies
 
@@ -96,7 +100,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::resource('demande_Stage', DemandeStageController::class);
     Route::get('projet_Stage', [ProjetController::class, 'getAllProjetStagaire'])->name('projet_Stage.getAllProjetStagaire');
     Route::get('projet_Stage/{id}', [ProjetController::class, 'showProjet'])->name('projet_Stage.showProjet');
-
+    Route::get('/cv', [cvController::class, 'indexS'])->name('cv.indexS');
 
 
 
