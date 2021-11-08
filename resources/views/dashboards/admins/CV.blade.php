@@ -88,6 +88,9 @@
                     <div class="white mt-3 ">
                         <h4 class="white" style="border-bottom: solid;" >Langues</h4>
                     </div>
+                    @if (count($langUser)==0)
+                    <h2>Aucune Langue </h2>
+                    @else
                     @foreach ($langUser as $item)
                         
                   
@@ -103,33 +106,42 @@
                           
                     </div>
                     @endforeach
+                    @endif
 
                     <div class="white mt-3 ">
                         <h4 class="white" style="border-bottom: solid;" >Social Media</h4>
                     </div>
+                    @if (count($resUser)==0)
+                    <h2>Aucune Social Media </h2>
+                    @else
                     @foreach ($resUser as $item)
 
                     <div class="white font-w5 pt-1"> <img src="{{asset('storage/Pictures/Reseau/' . $item->photoReseau)}}" class="ml-2" width="15" alt=""> : {{ $item->username}}</div>
 
                     @endforeach
+                    @endif
 
                 </div>
                 <div class="col-lg-6 bg-white">
                     <div class="mt-3 ">
                         <h2 style=" color: #525252; border-bottom: solid; font-size: x-large;" >Education</h2>
                     </div>
-
+                    @if (count($formUsers)==0)
+                    <h2>Aucune Education </h2>
+                    @else
                     @foreach ($formUsers as $item)
                         
                     
                     <div class="black school pt-1 ml-4"> <li>  {{$item->nomEcoleComplet}} | {{ date('Y',strtotime($item->dateDebut))}} - {{ date('Y',strtotime($item->dateFin)) }}</li></div>
                     <div class="black font-w5 ml-5"> {{$item->abreviation}} , {{$item->filiere}}   </div>
                     @endforeach
-                    
+                    @endif
                     <div class="mt-3 ">
                         <h2 style=" color: #525252; border-bottom: solid; font-size: x-large;" >Experience</h2>
                     </div>
-
+                    @if (count($expeUser)==0)
+                        <h2>Aucune Experience </h2>
+                    @else
                     @foreach ($expeUser as $item)
                         
                         <div class="black school pt-1 ml-4">  {{$item->entreprise}}  {{$item->dateDebutEx}} | {{$item->dateFinEx}} </div>
@@ -137,12 +149,16 @@
                         <div class="black font-w5 ml-5"> Mission : {{$item->tache}}  </div>
 
                     @endforeach
+                    @endif
 
                     <div class="mt-3 mb-5">
                         <h2 style=" color: #525252; border-bottom: solid; font-size: x-large;" >Competence</h2>
                     </div>
                 <div class="w-50 m-auto">
-                    @foreach ($Competence as $item)
+                    @if (count($Competence)==0)
+                        <h2>Aucune Competence </h2>
+                    @else
+                        @foreach ($Competence as $item)
                     <div class="black school pt-2  m-auto ">
                        
                         <div style="width: 140px !important; display: inline-block;"><img src="{{asset('storage/Pictures/Technologie/' . $item->photoTechnologie)}}" class="ml-2" width="35" alt="">  {{$item->nomTechnologie}} : </div>
@@ -154,6 +170,8 @@
                          @endfor
                        
                         @endforeach
+                    @endif
+                   
                     </div>
                 </div>
                 </div>
