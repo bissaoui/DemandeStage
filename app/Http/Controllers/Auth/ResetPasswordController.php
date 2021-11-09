@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Facades\Auth;
 
 class ResetPasswordController extends Controller
 {
@@ -22,9 +24,17 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
     /**
-     * Where to redirect users after resetting their password.
+     * Where to redir ect users after resetting their password.
      *
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo()
+    {
+        if (auth()->user()->is_admin == 1) {
+            return route('admin.dashboard');
+        } elseif (auth()->user()->is_admin == 2) {
+            return route('user.dashboard');
+        }
+    }
 }

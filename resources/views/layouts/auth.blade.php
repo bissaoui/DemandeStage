@@ -35,8 +35,10 @@
 			<div class="vertical-align-middle auth-main">
 				<div class="auth-box">
                     <div class="top">
-                        <img src="../assets/images/brand/icon.svg" alt="Lucid">
-                        <strong>Big</strong> <span>Bucket</span>
+                        <a href="{{ route('login') }}" style="color: white">
+                        <img src="{{asset('assets/images/brand/icon.svg')}}" alt="Lucid">
+                        <strong>internship</strong> 
+                    </a>
                     </div>
 					<div class="card">
                             @yield('content')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Demande;
 use App\Models\Ecole;
+use App\Models\Ville;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,10 +19,15 @@ class DemandeStageController extends Controller
     public function index()
     {
         //
+        if (auth()->user()->email_verified_at) {
 
-        $id = auth()->user()->id;
-        $dmds = Demande::all()->where('user_id', '=', $id);
-        return view('dashboards.users.demande.index', ['Stage' => true, 'dmds' => $dmds]);
+            $id = auth()->user()->id;
+            $dmds = Demande::all()->where('user_id', '=', $id);
+            return view('dashboards.users.demande.index', ['Stage' => true, 'dmds' => $dmds]);
+        }
+        $ville = Ville::all();
+
+        return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
     }
     public function accepte($id)
     {
