@@ -23,14 +23,14 @@
                         </div>
                         <div class="form-group">
                             <label>Date debut</label>
-                            <input type="date" class="form-control"value="{{old('dateDebut')}}"  name="dateDebut" required>
+                            <input type="date" class="form-control" value="{{old('dateDebut')}}"  id="date1"  onchange="setTime()"  name="dateDebut" required>
                             @error('dateDebut')
                                 <strong>{{ $message }}</strong>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>Date fin</label>
-                            <input type="date" class="form-control" value="{{old('dateFin')}}" name="dateFin" required>
+                            <input type="date" class="form-control" value="{{old('dateFin')}}" id="date2" onfocusout="myFunction()" name="dateFin" required>
                             @error('dateFin')
                                 <strong>{{ $message }}</strong>
                             @enderror
@@ -74,4 +74,7 @@
 @section('footer-scripts')
 <script src="{{ asset('assets/vendor/select2/select2.min.js')}}"></script>
 <script src="{{ asset('assets/js/pages/advanced-form.js')}}"></script>
-<script src="{{ asset('assets/js/theme.js')}}"></script>@endsection
+<script src="{{ asset('assets/js/theme.js')}}"></script>
+<script src="{{ asset('assets/js/main.js')}}"></script>
+
+@endsection

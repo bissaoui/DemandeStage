@@ -21,7 +21,7 @@
             </div>
             <div class="body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover js-basic-example dataTable ">
+                    <table class="table table-striped table-hover ">
                         <thead>
                             <tr>
                                 <th class="w-25" >Reseau </th>

@@ -43,7 +43,7 @@ class AbsenceController extends Controller
             ->select(DB::raw('count(user_id) as nbr_abs'), 'date_abs')
             ->groupBy('date_abs')
             ->get();
-        return view('dashboards.admins.absence.index', ['users' => $stgs, 'nbr_abs' => $nbr_abs, 'all' => $abss, "date" => $date]);
+        return view('dashboards.admins.absence.index', ["absence" => true, 'users' => $stgs, 'nbr_abs' => $nbr_abs, 'all' => $abss, "date" => $date]);
     }
 
     public function absence()

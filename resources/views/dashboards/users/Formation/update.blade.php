@@ -44,21 +44,21 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <p>Filiere  </p>
-                            <input type="text" class="form-control" value="{{$data[0]->filiere}}" name="filiere" required>
+                            <input type="text" class="form-control" value="{{$data[0]->filiere}}"  name="filiere" required>
                             @error('filiere')
                                 <strong>{{ $message }}</strong>
                             @enderror
                         </div>
                         <div class="form-group  col-lg-6">
                             <label>Date debut</label>
-                            <input type="date" class="form-control" value="{{$data[0]->dateDebut}}"  name="dateDebut" required>
+                            <input type="date" class="form-control" value="{{$data[0]->dateDebut}}"   onchange="setTime()"   id="date1" name="dateDebut" required>
                             @error('dateDebut')
                                 <strong>{{ $message }}</strong>
                             @enderror
                         </div>
                         <div class="form-group  col-lg-6">
                             <label>Date fin</label>
-                            <input type="date" class="form-control" value="{{$data[0]->dateFin}}"  name="dateFin" required>
+                            <input type="date" class="form-control" value="{{$data[0]->dateFin}}" onfocusout="myFunction()"  id="date2" name="dateFin" required>
                             @error('dateFin')
                                 <strong>{{ $message }}</strong>
                             @enderror
@@ -79,4 +79,6 @@
 <script src="{{ asset('assets/vendor/select2/select2.min.js')}}"></script>
 <script src="{{ asset('assets/js/pages/advanced-form.js')}}"></script>
 <script src="{{ asset('assets/js/theme.js')}}"></script>
+<script src="{{ asset('assets/js/main.js')}}"></script>
+
 @endsection

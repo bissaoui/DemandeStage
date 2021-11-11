@@ -81,6 +81,11 @@
                                 <label>Telephone</label>
                                 <input disabled type="tel" class="form-control" name="telephone" value="{{auth()->user()->telephone}}" required>
                             </div>
+                            <div class="form-group col-lg-12">
+                                <label for="description">Biographie </label>                       
+                                <textarea disabled class="form-control" placeholder="Bio"  name="Description" style="margin-top: 0px; margin-bottom: 0px; height: 121px;" aria-label="With textarea" >{{auth()->user()->Description}}</textarea>
+                                
+                            </div>
                             <div class="form-group col-lg-4">
 
                             </div>

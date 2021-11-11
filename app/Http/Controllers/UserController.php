@@ -134,6 +134,7 @@ class UserController extends Controller
             "civilite" => "required",
             "adresse" => "required",
             "telephone" => "required",
+            "Description" => "Description"
         ]);
 
         $user->name = $request['name'];
@@ -143,6 +144,8 @@ class UserController extends Controller
         $user->ville_id = $request['ville_id'];
         $user->adresse = $request['adresse'];
         $user->telephone = $request['telephone'];
+
+        $user->Description = $request['Description'];
         $user->email_verified_at = Carbon::now();
         if (!empty($request['photoUser'])) {
 

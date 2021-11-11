@@ -19,7 +19,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar-o"></i></span>
                                         </div>
-                                        <input type="text" class="form-control date" name="dateDebutPr" value="{{date('d-m-Y', strtotime($prj->dateDebutPr))}}" placeholder="Ex: 30/07/2016" required>
+                                        <input type="text" class="form-control date" name="dateDebutPr" id="date2"  onchange="setTime()"  value="{{date('d-m-Y', strtotime($prj->dateDebutPr))}}" placeholder="Ex: 30/07/2016" required>
                                         @error('dateDebutPr')
                                            <strong class="col-lg-12">{{ $message }}</strong>
                                         @enderror
@@ -35,7 +35,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar-o"></i></span>
                                         </div>
-                                        <input type="text" class="form-control date" name="dateFinPr" value="{{date('d-m-Y', strtotime($prj->dateFinPr))}}" placeholder="Ex: 30/07/2016" required>
+                                        <input type="text" class="form-control date" name="dateFinPr" id="date2" onfocusout="myFunction()" value="{{date('d-m-Y', strtotime($prj->dateFinPr))}}" placeholder="Ex: 30/07/2016" required>
                                         @error('dateFinPr')
                                            <strong class="col-lg-12" >{{ $message }}</strong>
                                         @enderror
@@ -59,5 +59,5 @@
 <script src="{{ asset('assets/vendor/jquery-inputmask/jquery.inputmask.bundle.js')}}"></script>
 <script src="{{ asset('assets/js/pages/advanced-form.js')}}"></script>
 <script src="{{ asset('assets/js/theme.js')}}"></script>
-
+<script src="{{ asset('assets/js/main.js')}}"></script>
 @endsection

@@ -38,14 +38,14 @@
                             </div>
                             <div class="form-group  col-lg-6">
                                 <label>Date debut</label>
-                                <input type="date" class="form-control" value="{{$exp->dateDebutEx}}"  name="dateDebutEx" required>
+                                <input type="date" class="form-control"  id="date1" value="{{$exp->dateDebutEx}}"  onchange="setTime()"  name="dateDebutEx" required>
                                 @error('dateDebutEx')
                                     <strong>{{ $message }}</strong>
                                 @enderror
                             </div>
                             <div class="form-group  col-lg-6">
                                 <label>Date fin</label>
-                                <input type="date" class="form-control" value="{{$exp->dateFinEx}}" name="dateFinEx" required>
+                                <input type="date" class="form-control" id="date2" value="{{$exp->dateFinEx}}"  onfocusout="myFunction()" name="dateFinEx" required>
                                 @error('dateFinEx')
                                     <strong>{{ $message }}</strong>
                                 @enderror
@@ -83,6 +83,8 @@
 @section('footer-scripts')
 <script src="{{ asset('assets/js/pages/advanced-form.js')}}"></script>
 <script src="{{ asset('assets/js/theme.js')}}"></script>
+<script src="{{ asset('assets/js/main.js')}}"></script>
+
 <script>
     function previewFile(input){
         var file = $("input[type=file]").get(0).files[0];

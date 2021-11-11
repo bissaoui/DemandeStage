@@ -77,7 +77,7 @@
                 <li class="@if(isset($projet) == true) active @else  @endif"><a href="{{route('projet.index')}}"><i class="fa  fa-tasks"></i><span>Projets</span></a></li>
                 <li class="@if(isset($langue) == true) active @else  @endif"><a href="{{url('admin/langue')}}"><i class="fa fa-bookmark-o"></i><span>Langues</span></a></li>
                 <li class="@if(isset($demande) == true) active @else  @endif"><a href="{{route('demande.allDemande')}}"><i class="fa fa-book"></i><span>Demandes</span></a></li>
-                <li class="@if(isset($absence) == true) active @else  @endif"><a href=""><i class="fa fa-calendar"></i><span>Absence</span></a></li>
+                <li class="@if(isset($absence) == true) active @else  @endif"><a href="{{route('admin.absence')}}"><i class="fa fa-calendar"></i><span>Absence</span></a></li>
             </ul>            
         </nav>
     </div>

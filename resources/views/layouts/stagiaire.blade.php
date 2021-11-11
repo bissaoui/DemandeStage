@@ -84,8 +84,10 @@
                 <li class="@if(isset($absence) == true) active @else  @endif"><a href="{{route('absence.index')}}"><i class="fa fa-calendar"></i><span>Absence</span></a></li>
                 @if (auth()->user()->cv_Is_Complet == 1)
                 <li class="@if(isset($mycv) == true ) active @else  @endif"><a href="{{route('cv.myCv')}}"><i class="fa fa-file-text"></i><span>Mon cv</span></a></li>
-
                 @endif
+                <li >
+                    <a  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{route('logout')}}"><i class="fa fa-sign-out"></i><span>Deconnecter</span></a></li>
+
             </ul>            
         </nav>
     </div>
