@@ -24,7 +24,7 @@
 </head>
 <body class="theme-black full-dark">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
+    <div class="page-loader-wrapper" style="background: #9b9595;">
         <div class="loader">
             <div class="m-t-30"><img src="{{asset('assets/images/brand/icon_black.svg')}}" width="48" height="48" alt="ArrOw"></div>
             <p>Please wait...</p>

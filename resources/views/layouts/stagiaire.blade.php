@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -80,6 +81,7 @@
                 </li>
                 <li class="@if(isset($Stage) == true) active @else  @endif"><a href="{{route('demande_Stage.index')}}"><i class="ti-file"></i><span>Demande De Stage</span></a></li>
                 <li class="@if(isset($Projet) == true) active @else  @endif"><a href="{{route('projet_Stage.getAllProjetStagaire')}}"><i class="fa fa-th-list"></i><span>Projets</span></a></li>
+                <li class="@if(isset($absence) == true) active @else  @endif"><a href="{{route('absence.index')}}"><i class="fa fa-calendar"></i><span>absence</span></a></li>
             </ul>            
         </nav>
     </div>
@@ -87,7 +89,7 @@
         @yield('content')
     </div>
 </div>
-
+@yield('style')
 <!-- Core -->
 <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>
 <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script>

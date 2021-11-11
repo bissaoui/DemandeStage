@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Absence;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +23,27 @@ class AbsenceController extends Controller
             ->where('user_id', '=', auth()->user()->id)
 
             ->get();
-        return view('dashboards.users.absence.index', ['abs' => $abs]);
+        return view('dashboards.users.absence.index', ['abs' => $abs, 'absence' => true]);
+    }
+    public function indexAdmin()
+    {
+        //$
+        $date1 = Carbon::now()->format('Y/m/d');
+        $date = Carbon::now();
+
+        $stgs  =  DB::table('users')
+            ->join('demandes', 'demandes.user_id', '=', 'users.id')
+            ->where('demandes.statut', 1)
+            ->whereNotIn('users.id', DB::table('absences')->select('user_id')->where('date_abs', $date1))
+            ->select('*')
+            ->get();
+
+        $abss = Absence::all();
+        $nbr_abs  =  DB::table('absences')
+            ->select(DB::raw('count(user_id) as nbr_abs'), 'date_abs')
+            ->groupBy('date_abs')
+            ->get();
+        return view('dashboards.admins.absence.index', ['users' => $stgs, 'nbr_abs' => $nbr_abs, 'all' => $abss, "date" => $date]);
     }
 
     public function absence()
@@ -80,6 +102,14 @@ class AbsenceController extends Controller
     public function store(Request $request)
     {
         //
+        $abs = new Absence();
+
+        $abs->user_id = $request['user_id'];
+        $abs->date_abs = Carbon::now();
+        $abs->statut = $request['statut'];
+
+        $abs->save();
+        return redirect('admin/absence');
     }
 
     /**
@@ -91,6 +121,12 @@ class AbsenceController extends Controller
     public function show($id)
     {
         //
+        $abss  =  DB::table('absences')
+            ->join('users', 'absences.user_id', '=', 'users.id')
+            ->where('absences.date_abs', $id)
+            ->select('absences.user_id', 'absences.statut', 'absences.date_abs', 'users.name', 'users.prenom', 'users.photoUser')
+            ->get();
+        return view('dashboards.admins.absence.show', ['abss' => $abss, 'date' => $id]);
     }
 
     /**
@@ -122,8 +158,13 @@ class AbsenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $idUser)
     {
         //
+        $abss  =  DB::table('absences')
+            ->where('absences.date_abs', $id)
+            ->where('absences.user_id', $idUser)->delete();
+
+        return redirect('admin/absence/' . $id);
     }
 }

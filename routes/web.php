@@ -14,6 +14,7 @@ use App\Http\Controllers\UserLangController;
 use App\Http\Controllers\UserReseauController;
 use App\Http\Controllers\VilleController;
 use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\cvController;
 use App\Http\Controllers\DemandeStageController;
 use Illuminate\Support\Facades\Route;
@@ -74,12 +75,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['isAdmin', 'auth']], functio
 
     // Demande de stage
 
-    Route::get('demande', [DemandeStageController::class, 'allDemande'])->name('demande.allDemande');
     Route::get('demande/{id}/refuse', [DemandeStageController::class, 'refuse'])->name('demande.refuse');
     Route::get('demande/{id}/accepte', [DemandeStageController::class, 'accepte'])->name('demande.accepte');
     Route::get('demande', [DemandeStageController::class, 'allDemande'])->name('demande.allDemande');
 
     Route::delete('userDelete/{id}', [UserController::class, 'destroy']);
+    Route::get('events', [EventController::class, 'index'])->name('admin.events');
+    Route::get('absence', [AbsenceController::class, 'indexAdmin'])->name('admin.absence');
+    Route::post('absence', [AbsenceController::class, 'store'])->name('admin.absence.store');
+    Route::get('absence/{id}', [AbsenceController::class, 'show'])->name('admin.absence.show');
+    Route::delete('absence/{id}/{idUser}', [AbsenceController::class, 'destroy'])->name('admin.absence.destroy');
 });
 /*///////////////////////////////////////End Admin//////////////////////////////////////////////*/
 
@@ -100,12 +105,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::resource('demande_Stage', DemandeStageController::class);
     Route::get('projet_Stage', [ProjetController::class, 'getAllProjetStagaire'])->name('projet_Stage.getAllProjetStagaire');
     Route::get('projet_Stage/{id}', [ProjetController::class, 'showProjet'])->name('projet_Stage.showProjet');
-    Route::get('/cv', [cvController::class, 'indexS'])->name('cv.indexS');
-
-
-
-
+    Route::get('cv', [cvController::class, 'indexS'])->name('cv.indexS');
+    Route::get('mesabsences', [absenceController::class, 'absence'])->name("user.absence");
     Route::put('update/{id}', [UserController::class, 'update'])->name('user.update');
 });
 
-/*///////////////////////////////////////End User//////////////////////////////////////////////*/
+/*/////////////////////////////////////// End User //////////////////////////////////////////////*/

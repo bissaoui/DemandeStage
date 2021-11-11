@@ -85,6 +85,7 @@
         @yield('content')
     </div>
 </div>
+@yield('style')
 
 <!-- Core -->
 <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script>

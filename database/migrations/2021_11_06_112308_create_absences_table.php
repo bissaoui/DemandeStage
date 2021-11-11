@@ -14,13 +14,14 @@ class CreateAbsencesTable extends Migration
     public function up()
     {
         Schema::create('absences', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->boolean('statut');
             $table->date('date_abs');
+            $table->primary(['date_abs', 'user_id']);
+
             $table->timestamps();
         });
     }
