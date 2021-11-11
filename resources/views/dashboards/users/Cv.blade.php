@@ -1,4 +1,4 @@
-@extends('layouts.admin') 
+@extends('layouts.stagiaire') 
 
 <link rel="stylesheet" href="{{asset('assets/vendor/select2/select2.css')}}" />
 <style>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ville;
+
 use App\Models\Langue;
 use App\Models\Reseausoc;
 use App\Models\Resuser;
@@ -18,14 +20,18 @@ class UserReseauController extends Controller
     {
         //              
         $id = auth()->user()->id;
+        if (auth()->user()->email_verified_at) {
+            $RU  =  DB::table('resusers')
+                ->join('reseausocs', 'resusers.reseausoc_id', '=', 'reseausocs.id')
+                ->where('user_id', $id)
+                ->select('reseausocs.id', 'reseausocs.nomReseau', 'reseausocs.photoReseau', 'resusers.username')
+                ->get();
 
-        $RU  =  DB::table('resusers')
-            ->join('reseausocs', 'resusers.reseausoc_id', '=', 'reseausocs.id')
-            ->where('user_id', $id)
-            ->select('reseausocs.id', 'reseausocs.nomReseau', 'reseausocs.photoReseau', 'resusers.username')
-            ->get();
+            return  view('dashboards.users.Reseau.index', ["data" => $RU, "Cv" => true]);
+        }
+        $ville = Ville::all();
 
-        return  view('dashboards.users.Reseau.index', ["data" => $RU, "Cv" => true]);
+        return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
     }
 
     /**
@@ -71,6 +77,8 @@ class UserReseauController extends Controller
         $resuser->username = $request->username;
         $resuser->reseausoc_id = $request->reseausoc_id;
         $resuser->save();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('/user/reseau');
     }
 
@@ -136,6 +144,8 @@ class UserReseauController extends Controller
     {
         //
         Resuser::where('reseausoc_id', '=', $id)->where('user_id', '=', auth()->user()->id)->delete();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('user/reseau');
     }
 }

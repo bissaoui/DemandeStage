@@ -81,7 +81,11 @@
                 </li>
                 <li class="@if(isset($Stage) == true) active @else  @endif"><a href="{{route('demande_Stage.index')}}"><i class="ti-file"></i><span>Demande De Stage</span></a></li>
                 <li class="@if(isset($Projet) == true) active @else  @endif"><a href="{{route('projet_Stage.getAllProjetStagaire')}}"><i class="fa fa-th-list"></i><span>Projets</span></a></li>
-                <li class="@if(isset($absence) == true) active @else  @endif"><a href="{{route('absence.index')}}"><i class="fa fa-calendar"></i><span>absence</span></a></li>
+                <li class="@if(isset($absence) == true) active @else  @endif"><a href="{{route('absence.index')}}"><i class="fa fa-calendar"></i><span>Absence</span></a></li>
+                @if (auth()->user()->cv_Is_Complet == 1)
+                <li class="@if(isset($mycv) == true ) active @else  @endif"><a href="{{route('cv.myCv')}}"><i class="fa fa-file-text"></i><span>Mon cv</span></a></li>
+
+                @endif
             </ul>            
         </nav>
     </div>

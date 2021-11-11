@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Competence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Ville;
 
 class CompetenceController extends Controller
 {
@@ -15,15 +16,18 @@ class CompetenceController extends Controller
      */
     public function index()
     {
-
-        //
         $id = auth()->user()->id;
-        $CU  =  DB::table('competences')
-            ->join('technologies', 'competences.technologie_id', '=', 'technologies.id')
-            ->where('user_id', $id)
-            ->select('technologies.id', 'technologies.nomTechnologie', 'competences.niveauCompetence', 'competences.nbAnnee', 'technologies.photoTechnologie')
-            ->get();
-        return  view('dashboards.users.Competence.index', ["data" => $CU, "Cv" => true]);
+        if (auth()->user()->email_verified_at) {
+            $CU  =  DB::table('competences')
+                ->join('technologies', 'competences.technologie_id', '=', 'technologies.id')
+                ->where('user_id', $id)
+                ->select('technologies.id', 'technologies.nomTechnologie', 'competences.niveauCompetence', 'competences.nbAnnee', 'technologies.photoTechnologie')
+                ->get();
+            return  view('dashboards.users.Competence.index', ["data" => $CU, "Cv" => true]);
+        }
+        $ville = Ville::all();
+
+        return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
     }
 
     /**
@@ -68,6 +72,8 @@ class CompetenceController extends Controller
         $competence->niveauCompetence = $request->niveauCompetence;
         $competence->nbAnnee = $request->nbAnnee;
         $competence->save();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('/user/competence');
     }
 
@@ -137,6 +143,8 @@ class CompetenceController extends Controller
         //
 
         Competence::where('technologie_id', '=', $id)->where('user_id', '=', auth()->user()->id)->delete();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('user/competence');
     }
 }

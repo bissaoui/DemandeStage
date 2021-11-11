@@ -108,6 +108,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['isUser', 'auth']], function 
     Route::get('cv', [cvController::class, 'indexS'])->name('cv.indexS');
     Route::get('mesabsences', [absenceController::class, 'absence'])->name("user.absence");
     Route::put('update/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::get('MonCv', [cvController::class, 'myCv'])->name('cv.myCv');
 });
 
 /*/////////////////////////////////////// End User //////////////////////////////////////////////*/

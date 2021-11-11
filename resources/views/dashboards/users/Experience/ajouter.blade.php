@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-group  col-lg-6">
                                 <label>Date fin</label>
-                                <input type="date" class="form-control" value="{{old('dateFinEx')}}" name="dateFinEx" required>
+                                <input type="date" class="form-control"  min="2019-06-02" value="{{old('dateFinEx')}}" name="dateFinEx" required>
                                 @error('dateFinEx')
                                     <strong>{{ $message }}</strong>
                                 @enderror

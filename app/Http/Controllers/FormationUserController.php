@@ -7,6 +7,7 @@ use App\Models\Formation;
 use App\Models\Formuser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Ville;
 
 class FormationUserController extends Controller
 {
@@ -18,16 +19,23 @@ class FormationUserController extends Controller
     public function index()
     {
 
+
+
         $id = auth()->user()->id;
+        if (auth()->user()->email_verified_at) {
 
-        $LU  =  DB::table('formusers')
-            ->join('ecoles', 'formusers.ecole_id', '=', 'ecoles.id')
-            ->join('formations', 'formusers.formation_id', 'formations.id')
-            ->where('user_id', $id)
-            ->select('ecoles.nomEcole', 'formations.abreviation', 'formusers.dateDebut', 'formusers.dateFin', 'formusers.filiere', 'formusers.nomEcoleComplet')
-            ->get();
+            $LU  =  DB::table('formusers')
+                ->join('ecoles', 'formusers.ecole_id', '=', 'ecoles.id')
+                ->join('formations', 'formusers.formation_id', 'formations.id')
+                ->where('user_id', $id)
+                ->select('ecoles.nomEcole', 'formations.abreviation', 'formusers.dateDebut', 'formusers.dateFin', 'formusers.filiere', 'formusers.nomEcoleComplet')
+                ->get();
 
-        return  view('dashboards.users.Formation.index', ["data" => $LU, "Cv" => true]);
+            return  view('dashboards.users.Formation.index', ["data" => $LU, "Cv" => true]);
+        }
+        $ville = Ville::all();
+
+        return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
     }
 
     /**
@@ -67,6 +75,8 @@ class FormationUserController extends Controller
 
 
         $formuser->save();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('/user/formation');
     }
 
@@ -130,6 +140,8 @@ class FormationUserController extends Controller
     {
         //
         Formuser::where('dateDebut', '=', $id)->where('user_id', '=', auth()->user()->id)->delete();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('/user/formation');
     }
 }

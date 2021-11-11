@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Ville;
 
 use App\Models\Languser;
 use Illuminate\Http\Request;
@@ -18,15 +19,21 @@ class UserLangController extends Controller
     public function index()
     {
         //
+
         $id = auth()->user()->id;
+        if (auth()->user()->email_verified_at) {
 
-        $LU  =  DB::table('langusers')
-            ->join('langues', 'langusers.langue_id', '=', 'langues.id')
-            ->where('user_id', $id)
-            ->select('langues.id', 'langues.nomLangue', 'langusers.niveauLangue')
-            ->get();
+            $LU  =  DB::table('langusers')
+                ->join('langues', 'langusers.langue_id', '=', 'langues.id')
+                ->where('user_id', $id)
+                ->select('langues.id', 'langues.nomLangue', 'langusers.niveauLangue')
+                ->get();
 
-        return  view('dashboards.users.Langue.index', ["data" => $LU, "Cv" => true]);
+            return  view('dashboards.users.Langue.index', ["data" => $LU, "Cv" => true]);
+        }
+        $ville = Ville::all();
+
+        return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
     }
 
     /**
@@ -71,6 +78,8 @@ class UserLangController extends Controller
         $languser->langue_id = $request->langue;
         $languser->niveauLangue = $request->niveauLangue;
         $languser->save();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('/user/langue');
     }
 
@@ -137,6 +146,8 @@ class UserLangController extends Controller
     {
         //
         Languser::where('langue_id', '=', $id)->where('user_id', '=', auth()->user()->id)->delete();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('user/langue');
     }
 }

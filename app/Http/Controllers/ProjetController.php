@@ -7,6 +7,7 @@ use App\Models\Projtech;
 use App\Models\Projuser;
 use App\Models\Technologie;
 use App\Models\User;
+use App\Models\Ville;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -22,20 +23,25 @@ class ProjetController extends Controller
     public function index()
     {
         //
+
         $projet = Projet::all();
         return view('dashboards.admins.Projet.index', ["projet" => true, "projets" => $projet]);
     }
     public function getAllProjetStagaire()
     {
+        $id = auth()->user()->id;
+        if (auth()->user()->email_verified_at) {
 
-        $projet  =  DB::table('projusers')
-            ->join('projets', 'projusers.projet_id', '=', 'projets.id')
-            ->where('user_id', auth()->user()->id)
-            ->select('nomProjet', 'id', 'etatProjet')
-            ->get();
-        return view('dashboards.users.Projet.index', ["Projet" => true, "projets" => $projet]);
+            $projet  =  DB::table('projusers')
+                ->join('projets', 'projusers.projet_id', '=', 'projets.id')
+                ->where('user_id', auth()->user()->id)
+                ->select('nomProjet', 'id', 'etatProjet')
+                ->get();
+            return view('dashboards.users.Projet.index', ["Projet" => true, "projets" => $projet]);
+        }
+        $ville = Ville::all();
 
-        return $LU;
+        return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
     }
 
     /**
@@ -191,6 +197,7 @@ class ProjetController extends Controller
     public function showProjet($id)
     {
         //
+
         $idUsers =  DB::table('projusers')
             ->join('users', 'users.id', '=', 'projusers.user_id')
             ->where('projet_id', $id)

@@ -1,6 +1,5 @@
 @extends('layouts.stagiaire')
 <style>
-
     .row {
     display: flex;
     flex-wrap: wrap;
@@ -12,7 +11,7 @@
 @section('content')    
 <div class="row clearfix " style="    margin-right: 0 px !important;">
     <div class="col-lg-12">
-        <div class="card pb-2">
+        <div class="card pb-2 mt-3">
             <div class="header">
                 <h2>  Dashboard User  </h2>
             </div>
@@ -91,7 +90,8 @@
 @endsection
 
 @section('footer-scripts')
-<script src="{{ asset('assets/bundles/libscripts.bundle.js')}}"></script>
+{{-- <script src="{{ asset('assets/bundles/libscripts.bundle.js')}}"></script> --}}
+
 <script src="{{ asset('assets/bundles/vendorscripts.bundle.js')}}"></script>
 <script src="{{ asset('assets/vendor/jquery-sparkline/js/jquery.sparkline.min.js')}}"></script>
 <script src="{{ asset('assets/vendor/jquery-knob/jquery.knob.min.js')}}"></script>

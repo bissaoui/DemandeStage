@@ -31,6 +31,8 @@ class CreateUsersTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade')->default("Null");
             $table->boolean('is_admin')->nullable();
+            $table->boolean('cv_Is_Complet')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

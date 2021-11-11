@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Experience;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Ville;
 
 class ExperienceController extends Controller
 {
@@ -18,13 +19,19 @@ class ExperienceController extends Controller
         //
 
         $id = auth()->user()->id;
+        if (auth()->user()->email_verified_at) {
 
-        $LU  =  DB::table('experiences')
-            ->where('user_id', $id)
-            ->select('*')
-            ->get();
+            $LU  =  DB::table('experiences')
+                ->where('user_id', $id)
+                ->select('*')
+                ->get();
 
-        return  view('dashboards.users.Experience.index', ["data" => $LU, "Cv" => true]);
+            return  view('dashboards.users.Experience.index', ["data" => $LU, "Cv" => true]);
+        }
+        $ville = Ville::all();
+
+        return view('dashboards.users.index', ["villes" => $ville, "monCompte" => true]);
+
     }
 
     /**
@@ -53,7 +60,7 @@ class ExperienceController extends Controller
         $this->validate($request, [
             'tache' => 'required',
             'dateDebutEx' => 'required|date',
-            'dateFinEx' => 'required|date|after:dateDebut|date_format:Y-m-d',
+            'dateFinEx' => 'required|date|date_format:Y-m-d',
             'entreprise' => 'required',
             'fonction' => 'required'
 
@@ -72,7 +79,10 @@ class ExperienceController extends Controller
 
             $exp->logoEntreprise = $upfile->upload($request['logoEntreprise'], "public/Pictures/Entreprise");
         }
+
         $exp->save();
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
         return redirect('/user/experience');
     }
 
@@ -140,6 +150,9 @@ class ExperienceController extends Controller
     {
         //
         Experience::destroy($id);
+        $cvCntr = new cvController();
+        $cvCntr->cvComplet(auth()->user()->id);
+
         return redirect('/user/experience');
     }
 }

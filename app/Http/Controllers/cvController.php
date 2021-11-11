@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\Constraint\Count;
 
 class cvController extends Controller
 {
@@ -47,11 +48,39 @@ class cvController extends Controller
 
         return ["infoUser" => $infoUser, "Competence" => $Competence, "formUsers" => $formUsers, "langUser" => $langUser, "resUser" => $resUser, "expeUser" => $expeUser];
     }
+    public function TestCompleteCv()
+    {
+        $allInfo = $this->getInfoUser(auth()->user()->id);
+        if (Count($allInfo['Competence']) >= 1 && Count($allInfo['formUsers']) >= 1 && Count($allInfo['langUser']) >= 1 && Count($allInfo['resUser']) >= 1 && Count($allInfo['expeUser']) >= 1) {
+            return true;
+        }
+
+        return  false;
+    }
     public function index($id)
     {
         if (auth()->user()->is_admin == 1) {
             $all = $this->getInfoUser($id);
             return  view('dashboards.admins.CV', ["infoUser" => $all['infoUser'], "langUser" => $all["langUser"], "resUser" => $all["resUser"], "formUsers" => $all["formUsers"], "expeUser" => $all["expeUser"], "Competence" => $all["Competence"]]);
+        }
+    }
+    public function myCv()
+    {
+
+        $all = $this->getInfoUser(auth()->user()->id);
+        return  view('dashboards.users.Cv', ["mycv" => true, "infoUser" => $all['infoUser'], "langUser" => $all["langUser"], "resUser" => $all["resUser"], "formUsers" => $all["formUsers"], "expeUser" => $all["expeUser"], "Competence" => $all["Competence"]]);
+    }
+    public function cvComplet($id)
+    {
+        $count = $this->TestCompleteCv();
+        if ($count) {
+
+            $user = User::find($id);
+            $user->cv_Is_Complet = 1;
+            $user->save();
+        } else {
+            $user->cv_Is_Complet = 0;
+            $user->save();
         }
     }
 }
