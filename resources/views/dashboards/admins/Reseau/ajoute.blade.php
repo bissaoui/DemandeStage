@@ -17,7 +17,7 @@
                     <h2><strong>  Ajouter </strong> Reseau </h2>
                 </div>
                 <div class="body">
-                    <form   enctype="multipart/form-data"  action="{{route('reseau.store')}}" method="post">
+                    <form   enctype="multipart/form-data"  action="{{route('reseaux.store')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <label>Nom Reseau</label>

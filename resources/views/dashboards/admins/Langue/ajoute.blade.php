@@ -11,7 +11,7 @@
                     <h2><strong>  Ajouter </strong> Langue </h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('langue.store')}}" method="post">
+                    <form action="{{route('languee.store')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <label>Nom Langue</label>

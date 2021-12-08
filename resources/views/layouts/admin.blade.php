@@ -72,10 +72,10 @@
                 <li class="@if(isset($stagiaire) == true) active @else  @endif"><a href="{{route('admin.stagiaire')}}"><i class="fa fa-users"></i><span>Stagiaires</span></a></li>
                 <li class="@if(isset($ecole) == true) active @else  @endif"><a href="{{route('ecole.index')}}"><i class="fa fa-mortar-board"></i><span>Ecoles</span></a></li>
                 <li class="@if(isset($ville) == true) active @else  @endif"><a href="{{route('ville.index')}}"><i class="fa fa-university"></i><span>Villes</span></a></li>
-                <li class="@if(isset($reseau) == true) active @else  @endif"><a href="{{url('admin/reseau')}}"><i class="fa fa-rss-square"></i><span>Reseau sociaux</span></a></li>
+                <li class="@if(isset($reseau) == true) active @else  @endif"><a href="{{url('admin/reseaux')}}"><i class="fa fa-rss-square"></i><span>Reseau sociaux</span></a></li>
                 <li class="@if(isset($technologie) == true) active @else  @endif"><a href="{{route('technologie.index')}}"><i class="fa fa-desktop"></i><span>Technologies</span></a></li>
                 <li class="@if(isset($projet) == true) active @else  @endif"><a href="{{route('projet.index')}}"><i class="fa  fa-tasks"></i><span>Projets</span></a></li>
-                <li class="@if(isset($langue) == true) active @else  @endif"><a href="{{url('admin/langue')}}"><i class="fa fa-bookmark-o"></i><span>Langues</span></a></li>
+                <li class="@if(isset($langue) == true) active @else  @endif"><a href="{{url('admin/languee')}}"><i class="fa fa-bookmark-o"></i><span>Langues</span></a></li>
                 <li class="@if(isset($demande) == true) active @else  @endif"><a href="{{route('demande.allDemande')}}"><i class="fa fa-book"></i><span>Demandes</span></a></li>
                 <li class="@if(isset($absence) == true) active @else  @endif"><a href="{{route('admin.absence')}}"><i class="fa fa-calendar"></i><span>Absence</span></a></li>
             </ul>            

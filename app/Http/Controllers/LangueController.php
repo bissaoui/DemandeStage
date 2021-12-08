@@ -45,7 +45,7 @@ class LangueController extends Controller
             'nomLangue' => 'unique:langues',
         ]);
         Langue::create($request->all());
-        return redirect('/admin/langue');
+        return redirect('/admin/languee');
     }
 
     /**
@@ -90,7 +90,7 @@ class LangueController extends Controller
 
 
 
-        return redirect('/admin/langue');
+        return redirect('/admin/languee');
     }
 
     /**
@@ -102,7 +102,7 @@ class LangueController extends Controller
     public function destroy($id)
     {
         Langue::destroy($id);
-        return redirect('/admin/langue');
+        return redirect('/admin/languee');
 
         // 'langue est supprimer avec ville success ';
     }

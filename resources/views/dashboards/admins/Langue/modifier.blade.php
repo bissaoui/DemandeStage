@@ -11,7 +11,7 @@
                     <h2><strong>  Modifier </strong> Langues </h2>
                 </div>
                 <div class="body">
-                    <form action="{{url('admin/langue/'.$lang->id)}}"  method="POST">
+                    <form action="{{url('admin/languee/'.$lang->id)}}"  method="POST">
                         @csrf
                         @method('put')
                         <div class="form-group">

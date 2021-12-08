@@ -134,7 +134,7 @@ class UserController extends Controller
             "civilite" => "required",
             "adresse" => "required",
             "telephone" => "required",
-            "Description" => "Description"
+            "Description" => "required"
         ]);
 
         $user->name = $request['name'];

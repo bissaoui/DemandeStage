@@ -17,7 +17,6 @@
                     <div id="calendar"></div>
                 </div>
 
-             <h2 style="background-color:#adb5bd ;color:black;font-family: inherit;font-weight: 600;font-size: 20px">nbr abs: {{$abs[0]->nbr_abs}}</h2>
         </div>                     
     
 </div>

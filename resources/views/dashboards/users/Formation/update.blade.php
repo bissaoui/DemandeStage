@@ -9,7 +9,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>  Ajouter </strong> Formation </h2>
+                    <h2><strong>  Modifier </strong> Formation </h2>
                 </div>
                 <div class="body">
                     <form  action="{{route('formation.update',$id)}}" method="post">

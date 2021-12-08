@@ -11,7 +11,7 @@
             <div class="header">
                 <h2><strong>List des</strong> Reseaux sociaux </h2>
                 <div class="">
-                    <form class="d-inline" action="{{route('reseau.create')}}" > 
+                    <form class="d-inline" action="{{route('reseaux.create')}}" > 
                         <button class="btn btn-primary  btn-animated btn-animated-y">
                             <span class="btn-inner--visible">Ajouter un Reseau social</span>
                             <span class="btn-inner--hidden"><i class="fa fa-plus"></i></span>
@@ -58,10 +58,10 @@
                                 <td>{{$res->nomReseau}}</td>
 
                                 <td>
-                                    <form  class="d-inline"  action="{{url ('admin/reseau/'.$res->id.'/edit')}}" method="get"> 
+                                    <form  class="d-inline"  action="{{url ('admin/reseaux/'.$res->id.'/edit')}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
                                     </form>
-                                     <form class="d-inline" action="{{url ('admin/reseau/'. $res->id)}}" method="POST"> 
+                                     <form class="d-inline" action="{{url ('admin/reseaux/'. $res->id)}}" method="POST"> 
                                         @method('DELETE')
                                         @csrf()
                                         <button  type="submit" class="btn btn-danger inline">Supprimer</button>

@@ -79,13 +79,13 @@
     <div class="col-lg-4 col-md-6 col-sm-12 text-center">
         <div class="card tasks_report">
             <div class="body">
-                <div style="display:inline;width:90px;height:90px;"><input type="text" class="knob" value="26" data-width="90" data-height="90" data-thickness="0.1" data-fgcolor="-
-                    #38bb56" readonly="readonly" style="width: 49px; height: 30px; position: absolute; vertical-align: middle; margin-top: 30px; margin-left: -69px; border: 0px; background: none; font: bold 18px Arial; text-align: center; color: rgb(123, 105, 236); padding: 0px; appearance: none;"></div>
+                <div style="display:inline;width:90px;height:90px;"><input type="text" class="knob" value="26" data-width="90" data-height="90" data-thickness="0.1" data-fgcolor="-#38bb56" readonly="readonly" style="width: 49px; height: 30px; position: absolute; vertical-align: middle; margin-top: 30px; margin-left: -69px; border: 0px; background: none; font: bold 18px Arial; text-align: center; color: rgb(123, 105, 236); padding: 0px; appearance: none;"></div>
                 <h6 class="m-t-20">Project Panding</h6>
                 <p class="displayblock m-b-0">13% Average <i class="fa fa-trending-down"></i></p>
             </div>
         </div>
     </div>
+    
 </div>
 @endsection
 

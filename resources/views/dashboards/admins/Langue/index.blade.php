@@ -11,7 +11,7 @@
             <div class="header">
                 <h2><strong>List des</strong> Langues </h2>
                 <div class="">
-                    <form class="d-inline" action="{{route('langue.create')}}" > 
+                    <form class="d-inline" action="{{route('languee.create')}}" > 
                         <button class="btn btn-primary  btn-animated btn-animated-y">
                             <span class="btn-inner--visible">Ajouter Langue</span>
                             <span class="btn-inner--hidden"><i class="fa fa-plus"></i></span>
@@ -45,10 +45,10 @@
                                 <td>{{$langue->id}}</td>
                                 <td>{{$langue->nomLangue}}</td>
                                 <td>
-                                    <form  class="d-inline"  action="{{url ('admin/langue/'.$langue->id.'/edit')}}" method="get"> 
+                                    <form  class="d-inline"  action="{{url ('admin/languee/'.$langue->id.'/edit')}}" method="get"> 
                                         <button  type="submit" class="btn btn-warning inline">Modifier</button>
                                     </form>
-                                     <form class="d-inline" action="{{url ('admin/langue/'. $langue->id)}}" method="POST"> 
+                                     <form class="d-inline" action="{{url ('admin/languee/'. $langue->id)}}" method="POST"> 
                                         @method('DELETE')
                                         @csrf()
                                         <button  type="submit" class="btn btn-danger inline">Supprimer</button>

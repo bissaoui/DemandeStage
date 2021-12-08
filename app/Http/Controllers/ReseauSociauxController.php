@@ -50,7 +50,7 @@ class ReseauSociauxController extends Controller
             $res->photoReseau = $upfile->upload($request['photoReseau'], "public/Pictures/Reseau");
         }
         $res->save();
-        return redirect('/admin/reseau');
+        return redirect('/admin/reseaux');
     }
 
     /**
@@ -97,7 +97,7 @@ class ReseauSociauxController extends Controller
             $res->photoReseau = $upfile->upload($request['photoReseau'], "public/Pictures/Reseau");
         }
         $res->save();
-        return redirect('/admin/reseau');
+        return redirect('/admin/reseaux');
     }
 
     /**
@@ -109,7 +109,7 @@ class ReseauSociauxController extends Controller
     public function destroy($id)
     {
         Reseausoc::destroy($id);
-        return redirect('/admin/reseau');
+        return redirect('/admin/reseaux');
         // 'tech est supprimer avec success ';
     }
 }
