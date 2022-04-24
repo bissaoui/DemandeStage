@@ -18,6 +18,7 @@
 ![Mot de passe oublie](https://user-images.githubusercontent.com/57335408/164974881-72fdda91-b186-47b8-be8d-27b8f04ab7cc.png)
 
 <p>Ainsi son mot de passe lui sera envoyer sur sa boite email.</p>
+
 ![GMAIL](https://user-images.githubusercontent.com/57335408/164975193-c006988c-211f-44ed-8944-21229563f989.png)
 
 <h3>Dashboard Stagiaire : </h3>
@@ -61,9 +62,11 @@
 ![Absence admin](https://user-images.githubusercontent.com/57335408/164975345-8c2a2df0-0477-4511-b113-38d4f8ff800b.png)
 
 <h3>Details de projet  :</h3>
+
 ![unnamed](https://user-images.githubusercontent.com/57335408/164975379-1ba956ab-66e3-4eb7-a59b-c936bf1e8792.png)
 
 <h3>Gestion de profile :</h3>
+
 ![unnamed](https://user-images.githubusercontent.com/57335408/164975415-ce9865db-24c8-4ff3-9172-c37aae5a8787.png)
 
 Modifier mot de passe : 
