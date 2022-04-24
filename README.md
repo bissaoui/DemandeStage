@@ -1,3 +1,27 @@
+
+ Ecran de connexion :
+
+![Authentification](https://user-images.githubusercontent.com/57335408/164974851-375f0549-22a6-4500-af4d-7aeebc20ae66.png)
+
+
+Inscription  :
+
+![Inscription](https://user-images.githubusercontent.com/57335408/164974873-cd2f63e9-c866-4778-95bd-a0a139c2ce66.png)
+
+
+Recupiration de mot de passe :
+
+![Mot de passe oublie](https://user-images.githubusercontent.com/57335408/164974881-72fdda91-b186-47b8-be8d-27b8f04ab7cc.png)
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
